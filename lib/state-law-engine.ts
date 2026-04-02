@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-// Merit-MD — State Law Engine
+// MedMal Review Pro — State Law Engine
 // Dynamic medical malpractice law lookups by jurisdiction.
 // Replaces static examples with comprehensive 50-state data.
 //

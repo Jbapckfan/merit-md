@@ -359,7 +359,7 @@ export default function ClinicianPage() {
             />
 
             <p className="text-center text-merit-text-muted text-xs pt-4 pb-2">
-              Data sourced from Merit-MD clinical knowledge base.
+              Data sourced from MedMal Review Pro clinical knowledge base.
               <br />
               Not a substitute for clinical judgment.
             </p>

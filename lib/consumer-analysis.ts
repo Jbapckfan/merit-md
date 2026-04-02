@@ -1,4 +1,4 @@
-// ── Merit-MD Consumer Analysis Engine ──
+// ── MedMal Review Pro Consumer Analysis Engine ──
 // Plain-language malpractice pre-screening for individual patients.
 // Uses the same clinical knowledge base but outputs at a 6th-grade reading level.
 

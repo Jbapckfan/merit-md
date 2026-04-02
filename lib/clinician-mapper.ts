@@ -1,4 +1,4 @@
-// ── Merit-MD Clinician Decision Support Mapper ──
+// ── MedMal Review Pro Clinician Decision Support Mapper ──
 // Maps chief complaints to knowledge base sections and formats output
 // for the 5-card clinician tool layout.
 // Data is pulled from CLINICAL_KNOWLEDGE and CLINICIAN_REALTIME — NOT hardcoded.

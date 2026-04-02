@@ -1,4 +1,4 @@
-// ── Merit-MD Clinician API ──
+// ── MedMal Review Pro Clinician API ──
 // GET /api/clinician?complaint=chest-pain
 // Returns JSON with the 5-card clinician decision support data.
 

@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Header from "@/components/Header";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Message {
   id?: number;
@@ -164,7 +165,7 @@ export default function CaseChatPage() {
 
   const handleExportConversation = () => {
     const allMessages = [...messages];
-    let exportText = `# Merit-MD Case Q&A Export\n`;
+    let exportText = `# MedMal Review Pro Case Q&A Export\n`;
     exportText += `# Case: ${caseData?.client_name || caseId}\n`;
     exportText += `# Exported: ${new Date().toLocaleString()}\n\n`;
 
@@ -177,7 +178,7 @@ export default function CaseChatPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `merit-md-qa-${caseId.slice(0, 8)}.md`;
+    a.download = `medmal-review-qa-${caseId.slice(0, 8)}.md`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -253,7 +254,7 @@ export default function CaseChatPage() {
           {messages.length > 0 && (
             <button
               onClick={handleExportConversation}
-              className="bg-merit-card border border-merit-border hover:border-merit-border-hover text-merit-text px-4 py-2 rounded-xl text-sm font-medium transition flex items-center gap-2"
+              className="bg-merit-card/50 backdrop-blur-xl border border-merit-border hover:border-merit-border-hover text-merit-text px-4 py-2 rounded-xl text-sm font-medium transition flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -266,7 +267,12 @@ export default function CaseChatPage() {
         {/* Messages area */}
         <div className="flex-1 overflow-y-auto space-y-4 mb-4 pr-1">
           {messages.length === 0 && !streamingText && (
-            <div className="text-center py-12">
+            <motion.div
+              className="text-center py-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <div className="w-16 h-16 rounded-2xl bg-merit-accent/10 border border-merit-accent/20 flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-merit-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
@@ -279,44 +285,57 @@ export default function CaseChatPage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
                 {SUGGESTED_QUESTIONS.map((q, i) => (
-                  <button
+                  <motion.button
                     key={i}
                     onClick={() => sendMessage(q)}
-                    className="text-left bg-merit-card border border-merit-border hover:border-merit-accent/40 rounded-xl px-4 py-3 text-sm text-merit-text-muted hover:text-merit-text transition"
+                    className="text-left bg-merit-card/50 backdrop-blur-xl border border-merit-border hover:border-merit-accent/40 rounded-xl px-4 py-3 text-sm text-merit-text-muted hover:text-merit-text transition"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05, duration: 0.3 }}
                   >
                     {q}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
 
-          {messages.map((msg, i) => (
-            <div
-              key={msg.id || i}
-              className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-            >
-              <div
-                className={`max-w-[85%] rounded-2xl px-5 py-3 ${
-                  msg.role === "user"
-                    ? "bg-merit-accent/15 border border-merit-accent/30 text-merit-text"
-                    : "bg-merit-card border border-merit-border text-merit-text"
-                }`}
+          <AnimatePresence>
+            {messages.map((msg, i) => (
+              <motion.div
+                key={msg.id || `msg-${i}`}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="text-xs font-medium uppercase tracking-wider mb-1.5 text-merit-text-muted">
-                  {msg.role === "user" ? "You" : "Consultant"}
+                <div
+                  className={`max-w-[85%] rounded-2xl px-5 py-3 backdrop-blur-xl shadow-lg shadow-black/10 ${
+                    msg.role === "user"
+                      ? "bg-merit-accent/15 border border-merit-accent/30 text-merit-text"
+                      : "bg-merit-card/50 border border-merit-border text-merit-text"
+                  }`}
+                >
+                  <div className="text-xs font-medium uppercase tracking-wider mb-1.5 text-merit-text-muted">
+                    {msg.role === "user" ? "You" : "Consultant"}
+                  </div>
+                  <div className="text-sm leading-relaxed whitespace-pre-wrap">
+                    {msg.content}
+                  </div>
                 </div>
-                <div className="text-sm leading-relaxed whitespace-pre-wrap">
-                  {msg.content}
-                </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
 
           {/* Streaming message */}
           {streamingText && (
-            <div className="flex justify-start">
-              <div className="max-w-[85%] rounded-2xl px-5 py-3 bg-merit-card border border-merit-border text-merit-text">
+            <motion.div
+              className="flex justify-start"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="max-w-[85%] rounded-2xl px-5 py-3 bg-merit-card/50 backdrop-blur-xl border border-merit-border text-merit-text shadow-lg shadow-black/10">
                 <div className="text-xs font-medium uppercase tracking-wider mb-1.5 text-merit-text-muted">
                   Consultant
                 </div>
@@ -325,13 +344,17 @@ export default function CaseChatPage() {
                   <span className="inline-block w-1.5 h-4 bg-merit-accent/60 ml-0.5 animate-pulse" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* Loading indicator */}
           {sending && !streamingText && (
-            <div className="flex justify-start">
-              <div className="bg-merit-card border border-merit-border rounded-2xl px-5 py-3">
+            <motion.div
+              className="flex justify-start"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <div className="bg-merit-card/50 backdrop-blur-xl border border-merit-border rounded-2xl px-5 py-3 shadow-lg shadow-black/10">
                 <div className="text-xs font-medium uppercase tracking-wider mb-1.5 text-merit-text-muted">
                   Consultant
                 </div>
@@ -341,7 +364,7 @@ export default function CaseChatPage() {
                   <div className="w-2 h-2 rounded-full bg-merit-accent/60 animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* Error message */}
@@ -365,14 +388,14 @@ export default function CaseChatPage() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask a question about this case..."
-              className="flex-1 bg-merit-card border border-merit-border rounded-xl px-4 py-3 text-sm text-merit-text placeholder-merit-text-muted/50 resize-none focus:border-merit-accent/50 transition"
+              className="flex-1 bg-merit-card/50 backdrop-blur-xl border border-merit-border rounded-xl px-4 py-3 text-sm text-merit-text placeholder-merit-text-muted/50 resize-none focus:border-merit-accent/50 focus:ring-1 focus:ring-merit-accent/30 transition"
               rows={2}
               disabled={sending}
             />
             <button
               onClick={() => sendMessage(input)}
               disabled={!input.trim() || sending}
-              className="self-end bg-merit-accent hover:bg-merit-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white px-5 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2"
+              className="self-end bg-merit-accent hover:bg-merit-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white px-5 py-3 rounded-xl text-sm font-medium transition shadow-lg shadow-merit-accent/20 flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />

@@ -1,4 +1,4 @@
-// ── Merit-MD Clinical Knowledge Base ──
+// ── MedMal Review Pro Clinical Knowledge Base ──
 // Structured clinical knowledge injected into analysis and chat prompts.
 // This is the moat — impossible to replicate without an ER physician.
 
@@ -176,7 +176,7 @@ export const LEGAL_FRAMEWORK = {
         "Required in: CA, CT, FL, GA, IL, MD, MI, NJ, NY, OH, PA, TX, and others",
       timing: "Usually must be filed with or shortly after the complaint",
       significance:
-        "This is exactly what Merit-MD provides — the pre-filing clinical assessment",
+        "This is exactly what MedMal Review Pro provides — the pre-filing clinical assessment",
     },
   },
 

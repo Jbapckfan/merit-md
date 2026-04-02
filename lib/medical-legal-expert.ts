@@ -1,4 +1,4 @@
-// ── Merit-MD Medical-Legal Expert Knowledge Base ──
+// ── MedMal Review Pro Medical-Legal Expert Knowledge Base ──
 // Comprehensive medical-legal knowledge for med-mal attorneys and ER physicians.
 // SUPPLEMENTS clinical-knowledge.ts — do not duplicate, only extend.
 // This is THE moat. Built from the intersection of emergency medicine and litigation.
@@ -1196,7 +1196,7 @@ export const LITIGATION_PATTERNS = {
       "States with strong tort reform — caps, shortened SOL, expert requirements",
     ],
     keyVariations: [
-      "Certificate of Merit: Required pre-filing in ~25 states. Merit-MD addresses this directly.",
+      "Certificate of Merit: Required pre-filing in ~25 states. MedMal Review Pro addresses this directly.",
       "Damage caps: Range from no cap (NY, FL post-2023) to strict limits (TX: $250K non-economic per physician)",
       "Collateral source rule: Some states allow jury to hear about insurance payments; most don't",
       "Joint and several liability: Varies — some states allow recovery from any defendant for full amount",

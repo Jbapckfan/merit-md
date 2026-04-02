@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
+import { motion } from "framer-motion";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -50,10 +51,20 @@ export default function SignupPage() {
   return (
     <>
       <Header />
-      <main className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-md">
+      <main className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12 bg-merit-bg">
+        <motion.div
+          className="w-full max-w-md"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+        >
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Create Your Account</h1>
+            <div className="w-12 h-12 rounded-xl bg-merit-accent/10 border border-merit-accent/20 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-merit-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl font-bold text-merit-text mb-2">Create Your Account</h1>
             <p className="text-merit-text-muted">
               Start analyzing cases with AI-powered clinical review.
             </p>
@@ -61,12 +72,16 @@ export default function SignupPage() {
 
           <form
             onSubmit={handleSubmit}
-            className="bg-merit-card border border-merit-border rounded-2xl p-8 space-y-5"
+            className="bg-merit-card/50 backdrop-blur-xl border border-merit-border rounded-2xl p-8 space-y-5 shadow-xl shadow-black/20"
           >
             {error && (
-              <div className="bg-merit-danger/10 border border-merit-danger/30 text-merit-danger text-sm p-3 rounded-xl">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-merit-danger/10 border border-merit-danger/30 text-merit-danger text-sm p-3 rounded-xl"
+              >
                 {error}
-              </div>
+              </motion.div>
             )}
 
             <div>
@@ -79,7 +94,7 @@ export default function SignupPage() {
                 type="text"
                 value={firmName}
                 onChange={(e) => setFirmName(e.target.value)}
-                className="w-full bg-merit-bg border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent transition"
+                className="w-full bg-merit-bg/80 border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent focus:ring-1 focus:ring-merit-accent/30 transition"
                 placeholder="Smith & Associates, LLP"
               />
             </div>
@@ -94,7 +109,7 @@ export default function SignupPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-merit-bg border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent transition"
+                className="w-full bg-merit-bg/80 border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent focus:ring-1 focus:ring-merit-accent/30 transition"
                 placeholder="you@yourfirm.com"
               />
             </div>
@@ -110,7 +125,7 @@ export default function SignupPage() {
                 minLength={8}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-merit-bg border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent transition"
+                className="w-full bg-merit-bg/80 border border-merit-border rounded-xl px-4 py-2.5 text-merit-text placeholder:text-merit-text-muted/50 focus:border-merit-accent focus:ring-1 focus:ring-merit-accent/30 transition"
                 placeholder="At least 8 characters"
               />
             </div>
@@ -118,7 +133,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-merit-accent hover:bg-merit-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-white py-2.5 rounded-xl font-semibold transition"
+              className="w-full bg-merit-accent hover:bg-merit-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-white py-2.5 rounded-xl font-semibold transition shadow-lg shadow-merit-accent/20"
             >
               {loading ? "Creating account..." : "Create Account"}
             </button>
@@ -135,7 +150,7 @@ export default function SignupPage() {
             By creating an account, you agree to our Terms of Service and Privacy
             Policy. All data is handled in accordance with HIPAA requirements.
           </p>
-        </div>
+        </motion.div>
       </main>
     </>
   );

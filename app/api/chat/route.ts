@@ -1,4 +1,4 @@
-// ── Merit-MD Chat API ──
+// ── MedMal Review Pro Chat API ──
 // POST /api/chat — streaming Q&A about a case using Claude CLI
 
 import { NextRequest } from "next/server";

@@ -11,11 +11,11 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-merit-accent flex items-center justify-center text-white font-bold text-sm">
                 M
               </div>
-              <span className="text-merit-text font-semibold text-lg">Merit-MD</span>
+              <span className="text-merit-text font-semibold text-lg">MedMal Review Pro</span>
             </div>
             <p className="text-merit-text-muted text-sm max-w-md leading-relaxed">
               AI-powered clinical merit review for medical malpractice cases.
-              Built by physicians, for attorneys.
+              Built by physicians, for attorneys. MedMal Review Buddy is our consumer service.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function Footer() {
                 <span className="text-merit-text-muted text-sm cursor-default">HIPAA Compliance</span>
               </li>
               <li>
-                <a href="mailto:contact@merit-md.com" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                <a href="mailto:contact@medmalreview.com" className="text-merit-text-muted hover:text-merit-text text-sm transition">
                   Contact
                 </a>
               </li>
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="border-t border-merit-border mt-10 pt-6 text-center">
           <p className="text-merit-text-muted text-xs">
-            &copy; 2026 Merit-MD. Built by physicians, for attorneys.
+            &copy; 2026 MedMal Review Pro. Built by physicians, for attorneys.
           </p>
         </div>
       </div>

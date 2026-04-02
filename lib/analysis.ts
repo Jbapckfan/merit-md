@@ -1,4 +1,4 @@
-// ── Merit-MD Analysis Engine ──
+// ── MedMal Review Pro Analysis Engine ──
 // Sends clinical text to Claude CLI for malpractice merit assessment.
 // Falls back to a demo report when claude CLI is not available.
 
@@ -156,7 +156,7 @@ function getDemoReport(): MeritReport {
   return {
     score: 7,
     summary:
-      "This is a DEMO report generated without AI analysis. In production with Claude CLI available, Merit-MD performs a thorough clinical review of the uploaded records. The following sample findings illustrate the type of analysis provided.",
+      "This is a DEMO report generated without AI analysis. In production with Claude CLI available, MedMal Review Pro performs a thorough clinical review of the uploaded records. The following sample findings illustrate the type of analysis provided.",
     findings: [
       {
         category: "missed diagnosis",

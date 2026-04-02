@@ -16,7 +16,7 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
             M
           </div>
           <span className="text-merit-text font-semibold text-lg tracking-tight">
-            Merit-MD
+            {isPatientSection ? "MedMal Review Buddy" : "MedMal Review Pro"}
           </span>
         </Link>
 

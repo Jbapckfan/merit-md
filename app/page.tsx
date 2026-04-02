@@ -78,7 +78,7 @@ const useCases = {
     title: "Plaintiff Firms",
     headline: "Screen cases faster. Win the right ones.",
     description:
-      "Stop burning retainer hours on cases that lack clinical merit. Merit-MD gives you an ER-grade assessment within minutes so you can focus resources on cases with the highest probability of success.",
+      "Stop burning retainer hours on cases that lack clinical merit. MedMal Review Pro gives you an ER-grade assessment within minutes so you can focus resources on cases with the highest probability of success.",
     features: [
       "Instant negligence probability scoring",
       "Standard-of-care deviation mapping",
@@ -91,7 +91,7 @@ const useCases = {
     title: "Defense Firms",
     headline: "Know your exposure before the deposition.",
     description:
-      "Understand the clinical vulnerabilities in your client's care before the plaintiff's expert does. Merit-MD identifies the exact deviations they'll target so you can build a proactive defense strategy.",
+      "Understand the clinical vulnerabilities in your client's care before the plaintiff's expert does. MedMal Review Pro identifies the exact deviations they'll target so you can build a proactive defense strategy.",
     features: [
       "Vulnerability assessment of medical records",
       "Counter-argument generation for each finding",
@@ -104,7 +104,7 @@ const useCases = {
     title: "Hospital Risk Management",
     headline: "Catch issues before they become lawsuits.",
     description:
-      "Proactively audit patient encounters for documentation gaps, protocol deviations, and risk factors. Merit-MD helps risk management teams identify and remediate issues before they escalate to litigation.",
+      "Proactively audit patient encounters for documentation gaps, protocol deviations, and risk factors. MedMal Review Pro helps risk management teams identify and remediate issues before they escalate to litigation.",
     features: [
       "Batch analysis of patient encounters",
       "Real-time documentation quality scoring",
@@ -118,7 +118,7 @@ const useCases = {
 const faqs = [
   {
     q: "Is this HIPAA compliant?",
-    a: "Yes. Merit-MD is fully HIPAA compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We process records on secure, isolated infrastructure and never share patient data. We execute Business Associate Agreements (BAAs) with all clients.",
+    a: "Yes. MedMal Review Pro is fully HIPAA compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We process records on secure, isolated infrastructure and never share patient data. We execute Business Associate Agreements (BAAs) with all clients.",
   },
   {
     q: "How accurate is the AI analysis?",
@@ -126,15 +126,15 @@ const faqs = [
   },
   {
     q: "Can I use this for defense cases?",
-    a: "Absolutely. Defense firms use Merit-MD to understand their client's exposure before depositions. The same clinical analysis that identifies negligence for plaintiffs also reveals where the care met or exceeded standards, giving defense teams a clear picture of strengths and vulnerabilities.",
+    a: "Absolutely. Defense firms use MedMal Review Pro to understand their client's exposure before depositions. The same clinical analysis that identifies negligence for plaintiffs also reveals where the care met or exceeded standards, giving defense teams a clear picture of strengths and vulnerabilities.",
   },
   {
     q: "What types of cases can you analyze?",
-    a: "Merit-MD specializes in emergency medicine, critical care, and hospital-based cases including: missed diagnoses (MI, stroke, sepsis, PE), treatment delays, medication errors, monitoring failures, documentation gaps, EMTALA violations, and discharge/follow-up issues.",
+    a: "MedMal Review Pro specializes in emergency medicine, critical care, and hospital-based cases including: missed diagnoses (MI, stroke, sepsis, PE), treatment delays, medication errors, monitoring failures, documentation gaps, EMTALA violations, and discharge/follow-up issues.",
   },
   {
     q: "Do I still need an expert witness?",
-    a: "For litigation, yes. Merit-MD is a screening and analysis tool, not a replacement for expert testimony. However, our Physician Review tier includes a signed attestation letter from a board-certified ER physician and can serve as a foundation for your expert's review, saving significant preparation time.",
+    a: "For litigation, yes. MedMal Review Pro is a screening and analysis tool, not a replacement for expert testimony. However, our Physician Review tier includes a signed attestation letter from a board-certified ER physician and can serve as a foundation for your expert's review, saving significant preparation time.",
   },
   {
     q: "How long does analysis take?",
@@ -209,7 +209,7 @@ const pricingTiers = [
       "Batch processing",
     ],
     cta: "Contact Sales",
-    href: "mailto:contact@merit-md.com",
+    href: "mailto:contact@medmalreview.com",
     highlight: false,
     badge: null,
   },
@@ -881,7 +881,7 @@ export default function LandingPage() {
                 Simple, Transparent Pricing
               </h2>
               <p className="text-[#9490b0] text-lg max-w-xl mx-auto">
-                One bad case can cost your firm more than a year of Merit-MD.
+                One bad case can cost your firm more than a year of MedMal Review Pro.
               </p>
             </AnimatedSection>
 
@@ -899,7 +899,7 @@ export default function LandingPage() {
           <div className="max-w-5xl mx-auto px-6 relative">
             <AnimatedSection className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Why Firms Trust Merit-MD
+                Why Firms Trust MedMal Review Pro
               </h2>
             </AnimatedSection>
 
@@ -1049,7 +1049,7 @@ export default function LandingPage() {
               </h2>
               <p className="text-[#9490b0] text-lg mb-10 max-w-xl mx-auto">
                 Every week you spend on a meritless case is a week you could have
-                spent winning a strong one. Let Merit-MD tell you the difference.
+                spent winning a strong one. Let MedMal Review Pro tell you the difference.
               </p>
               <Link href="/signup" className="relative inline-block group">
                 <span className="absolute inset-0 rounded-xl bg-[#4f8ff7] blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
