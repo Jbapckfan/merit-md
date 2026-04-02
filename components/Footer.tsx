@@ -38,6 +38,11 @@ export default function Footer() {
                   Get Started
                 </Link>
               </li>
+              <li>
+                <Link href="/patient" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  For Patients
+                </Link>
+              </li>
             </ul>
           </div>
 

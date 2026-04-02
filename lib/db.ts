@@ -51,9 +51,35 @@ function initSchema(db: Database.Database) {
       FOREIGN KEY (case_id) REFERENCES cases(id) ON DELETE CASCADE
     );
 
+    CREATE TABLE IF NOT EXISTS case_messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      case_id TEXT NOT NULL,
+      role TEXT NOT NULL CHECK(role IN ('user', 'assistant')),
+      content TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      FOREIGN KEY (case_id) REFERENCES cases(id)
+    );
+
     CREATE INDEX IF NOT EXISTS idx_cases_user ON cases(user_id);
     CREATE INDEX IF NOT EXISTS idx_cases_share ON cases(share_token);
     CREATE INDEX IF NOT EXISTS idx_uploads_case ON uploads(case_id);
+    CREATE INDEX IF NOT EXISTS idx_case_messages_case ON case_messages(case_id);
+
+    CREATE TABLE IF NOT EXISTS patient_cases (
+      id TEXT PRIMARY KEY,
+      email TEXT NOT NULL,
+      description TEXT NOT NULL,
+      incident_date TEXT,
+      facility TEXT,
+      outcome_type TEXT,
+      tier TEXT NOT NULL DEFAULT 'quick',
+      status TEXT NOT NULL DEFAULT 'processing',
+      analysis TEXT,
+      score INTEGER,
+      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_patient_cases_email ON patient_cases(email);
   `);
 }
 
@@ -172,4 +198,79 @@ export function getUploadsByCase(caseId: string): Upload[] {
   return getDb()
     .prepare("SELECT * FROM uploads WHERE case_id = ? ORDER BY created_at")
     .all(caseId) as Upload[];
+}
+
+// ── Case message operations ──
+
+export interface CaseMessage {
+  id: number;
+  case_id: string;
+  role: "user" | "assistant";
+  content: string;
+  created_at: string;
+}
+
+export function createCaseMessage(
+  caseId: string,
+  role: "user" | "assistant",
+  content: string
+): CaseMessage {
+  const db = getDb();
+  const result = db.prepare(
+    "INSERT INTO case_messages (case_id, role, content) VALUES (?, ?, ?)"
+  ).run(caseId, role, content);
+  return db.prepare("SELECT * FROM case_messages WHERE id = ?").get(result.lastInsertRowid) as CaseMessage;
+}
+
+export function getMessagesByCase(caseId: string): CaseMessage[] {
+  return getDb()
+    .prepare("SELECT * FROM case_messages WHERE case_id = ? ORDER BY created_at ASC")
+    .all(caseId) as CaseMessage[];
+}
+
+// ── Patient case operations ──
+
+export interface PatientCase {
+  id: string;
+  email: string;
+  description: string;
+  incident_date: string | null;
+  facility: string | null;
+  outcome_type: string | null;
+  tier: string;
+  status: string;
+  analysis: string | null;
+  score: number | null;
+  created_at: string;
+}
+
+export function createPatientCase(
+  id: string,
+  email: string,
+  description: string,
+  incidentDate?: string,
+  facility?: string,
+  outcomeType?: string,
+  tier?: string
+): PatientCase {
+  const db = getDb();
+  db.prepare(
+    "INSERT INTO patient_cases (id, email, description, incident_date, facility, outcome_type, tier) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  ).run(id, email, description, incidentDate || null, facility || null, outcomeType || null, tier || "quick");
+  return db.prepare("SELECT * FROM patient_cases WHERE id = ?").get(id) as PatientCase;
+}
+
+export function getPatientCaseById(id: string): PatientCase | undefined {
+  return getDb().prepare("SELECT * FROM patient_cases WHERE id = ?").get(id) as PatientCase | undefined;
+}
+
+export function updatePatientCaseReport(
+  id: string,
+  status: string,
+  score: number | null,
+  analysis: string | null
+) {
+  getDb()
+    .prepare("UPDATE patient_cases SET status = ?, score = ?, analysis = ? WHERE id = ?")
+    .run(status, score, analysis, id);
 }

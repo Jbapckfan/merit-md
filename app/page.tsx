@@ -994,6 +994,31 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* ══════════════════ 8.5. PATIENT BANNER ══════════════════ */}
+        <section className="py-12 border-t border-[#2a2440]/50">
+          <div className="max-w-4xl mx-auto px-6">
+            <AnimatedSection>
+              <div className="bg-gradient-to-r from-[#4f8ff7]/5 to-[#a78bfa]/5 border border-[#4f8ff7]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <h3 className="text-[#e5e2ff] text-xl font-semibold mb-2">
+                    Are you a patient?
+                  </h3>
+                  <p className="text-[#9490b0] text-sm max-w-md">
+                    Think you received the wrong care? Get an AI-powered assessment
+                    for just $49 -- no lawyer needed to get started.
+                  </p>
+                </div>
+                <Link
+                  href="/patient"
+                  className="flex-shrink-0 bg-[#15111e] border border-[#4f8ff7]/30 hover:bg-[#4f8ff7]/10 text-[#4f8ff7] px-6 py-3 rounded-xl text-sm font-semibold transition whitespace-nowrap"
+                >
+                  Check if You Have a Case
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* ══════════════════ 9. CTA ══════════════════ */}
         <section className="py-24 md:py-32 border-t border-[#2a2440]/50 relative overflow-hidden">
           {/* Gradient background */}

@@ -176,7 +176,7 @@ export default function CaseReportPage() {
             </div>
             {report?.analysisMode === "demo" && (
               <div className="mt-3 bg-merit-warning/10 border border-merit-warning/30 text-merit-warning text-sm px-4 py-2 rounded-xl">
-                Demo Mode — Configure NVIDIA_NIM_API_KEY for live AI analysis.
+                Demo Mode — Claude CLI not available. Install and configure Claude CLI for live AI analysis.
               </div>
             )}
           </div>
@@ -280,6 +280,33 @@ export default function CaseReportPage() {
                   </li>
                 ))}
               </ol>
+            </section>
+
+            {/* Case Q&A CTA */}
+            <section className="bg-merit-card border border-merit-accent/30 rounded-2xl p-6 mb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-merit-accent/10 border border-merit-accent/20 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-merit-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-lg font-semibold mb-1">Ask Questions About This Case</h2>
+                  <p className="text-merit-text-muted text-sm mb-4">
+                    Dive deeper with an AI medical-legal consultant. Ask about expert witnesses,
+                    deposition strategy, defense arguments, additional records to request, and more.
+                  </p>
+                  <button
+                    onClick={() => router.push(`/case/${caseId}/chat`)}
+                    className="bg-merit-accent hover:bg-merit-accent-hover text-white px-6 py-2.5 rounded-xl text-sm font-medium transition flex items-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                    Start Case Q&A
+                  </button>
+                </div>
+              </div>
             </section>
 
             {/* Actions */}

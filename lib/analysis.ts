@@ -1,6 +1,12 @@
 // ── Merit-MD Analysis Engine ──
-// Sends clinical text to LLM for malpractice merit assessment.
-// Falls back to a demo report when no API key is configured.
+// Sends clinical text to Claude CLI for malpractice merit assessment.
+// Falls back to a demo report when claude CLI is not available.
+
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { getKnowledgeForText } from "./clinical-knowledge";
+
+const execFileAsync = promisify(execFile);
 
 export interface Finding {
   category: string;
@@ -20,7 +26,10 @@ export interface MeritReport {
   analysisMode: "ai" | "demo";
 }
 
-const SYSTEM_PROMPT = `You are an experienced emergency medicine physician reviewing clinical records for potential medical malpractice. Analyze the following medical records and produce a structured merit assessment.
+function buildSystemPrompt(clinicalText: string): string {
+  const knowledgeContext = getKnowledgeForText(clinicalText);
+
+  return `You are an experienced emergency medicine physician reviewing clinical records for potential medical malpractice. Analyze the following medical records and produce a structured merit assessment.
 
 For each potential issue found, provide:
 1. Category (missed diagnosis, delayed treatment, documentation gap, protocol violation, EMTALA issue)
@@ -36,6 +45,7 @@ Then provide an overall assessment:
 - Recommended next steps for the attorney
 
 Be thorough but honest. If the care was appropriate, say so clearly.
+${knowledgeContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
 {
@@ -54,49 +64,33 @@ IMPORTANT: Respond ONLY with valid JSON in this exact format:
   "weaknesses": ["<string>"],
   "recommendations": ["<string>"]
 }`;
+}
+
+async function callClaude(systemPrompt: string, userPrompt: string): Promise<string> {
+  const { stdout } = await execFileAsync("claude", [
+    "-p", userPrompt,
+    "--system-prompt", systemPrompt,
+    "--output-format", "text",
+    "--max-turns", "1",
+  ], {
+    timeout: 120_000,
+    maxBuffer: 10 * 1024 * 1024, // 10MB buffer for large responses
+  });
+  return stdout.trim();
+}
 
 export async function analyzeCase(
   caseSummary: string,
   clinicalText: string
 ): Promise<MeritReport> {
-  const apiKey = process.env.NVIDIA_NIM_API_KEY;
-
-  if (!apiKey) {
-    console.log("[analysis] No NVIDIA_NIM_API_KEY set — using demo report");
-    return getDemoReport();
-  }
-
   try {
-    const userMessage = `## Case Summary\n${caseSummary}\n\n## Clinical Records\n${clinicalText.slice(0, 30000)}`;
+    const systemPrompt = buildSystemPrompt(clinicalText);
+    const userMessage = `## Case Summary\n${caseSummary}\n\n## Clinical Records\n${clinicalText.slice(0, 60000)}`;
 
-    const response = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "nvidia/llama-3.1-nemotron-ultra-253b-v1",
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          { role: "user", content: userMessage },
-        ],
-        temperature: 0.3,
-        max_tokens: 4096,
-      }),
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error("[analysis] NIM API error:", response.status, errText);
-      throw new Error(`NIM API returned ${response.status}`);
-    }
-
-    const data = await response.json();
-    const content = data.choices?.[0]?.message?.content;
+    const content = await callClaude(systemPrompt, userMessage);
 
     if (!content) {
-      throw new Error("Empty response from NIM API");
+      throw new Error("Empty response from Claude CLI");
     }
 
     // Extract JSON from the response (handle markdown code blocks)
@@ -133,7 +127,7 @@ function getDemoReport(): MeritReport {
   return {
     score: 7,
     summary:
-      "This is a DEMO report generated without AI analysis. In production with an API key configured, Merit-MD performs a thorough clinical review of the uploaded records. The following sample findings illustrate the type of analysis provided.",
+      "This is a DEMO report generated without AI analysis. In production with Claude CLI available, Merit-MD performs a thorough clinical review of the uploaded records. The following sample findings illustrate the type of analysis provided.",
     findings: [
       {
         category: "missed diagnosis",

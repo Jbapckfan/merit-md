@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation";
 export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const pathname = usePathname();
   const isLanding = pathname === "/";
+  const isPatientSection = pathname?.startsWith("/patient");
 
   return (
     <header className="border-b border-merit-border bg-merit-bg/80 backdrop-blur-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
+        <Link href={isPatientSection ? "/patient" : "/"} className="flex items-center gap-2.5 group">
           <div className="w-8 h-8 rounded-lg bg-merit-accent flex items-center justify-center text-white font-bold text-sm">
             M
           </div>
@@ -20,22 +21,29 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
         </Link>
 
         <div className="flex items-center gap-4">
-          {isLanding && (
+          {(isLanding || isPatientSection) && (
             <>
               <a
-                href="#how-it-works"
+                href={isPatientSection ? "/patient#how-it-works" : "#how-it-works"}
                 className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
               >
                 How It Works
               </a>
               <a
-                href="#pricing"
+                href={isPatientSection ? "/patient#pricing" : "#pricing"}
                 className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
               >
                 Pricing
               </a>
             </>
           )}
+
+          <Link
+            href={isPatientSection ? "/" : "/patient"}
+            className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+          >
+            {isPatientSection ? "For Law Firms" : "For Patients"}
+          </Link>
 
           {isLoggedIn ? (
             <>
