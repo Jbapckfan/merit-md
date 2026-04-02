@@ -1,0 +1,76 @@
+EMERGENCY DEPARTMENT RECORD
+De-identified for testing purposes
+
+PATIENT: [REDACTED] | DOB: [REDACTED] | MRN: [REDACTED]
+DATE OF SERVICE: 03/08/2026
+ARRIVAL TIME: 22:15 | DEPARTURE TIME: 04:30 (admitted)
+
+TRIAGE NOTE (22:15):
+78 y/o female brought in by family for confusion and generalized weakness x 1 day. Family reports she has been "not herself" since this morning, less responsive, not eating. PMH: CHF, COPD, UTIs (recurrent), CKD stage 3. Lives in assisted living facility. Medications include furosemide, albuterol inhaler, trimethoprim (completed course 2 weeks ago).
+VS: BP 92/58, HR 112, RR 24, O2 91% RA, Temp 101.8F (rectal)
+ESI Level: 2
+
+NURSING NOTE (22:20):
+Patient placed on monitor, IV access x1 18g right AC. Supplemental O2 via NC 2L applied. MD notified of triage vitals.
+
+NURSING NOTE (22:45):
+NS 500mL bolus infusing. Patient oriented to person only.
+
+NURSING NOTE (23:30):
+VS: BP 88/52, HR 118, RR 22, O2 94% on 2L NC. MD at bedside aware. Second 500mL bolus started.
+
+NURSING NOTE (00:15):
+Labs back. MD notified of lactate result.
+
+PHYSICIAN NOTE:
+HPI: 78F with history CHF, COPD, CKD3, recurrent UTIs presenting with acute altered mental status and weakness. Family reports progressive decline over 24 hours. Recently completed abx course for UTI 2 weeks ago. No reported falls, no new medications, no witnessed seizure activity.
+
+ROS: Unable to obtain complete ROS due to patient's mental status. Family denies witnessed falls, seizures, or new medications.
+
+PHYSICAL EXAM:
+General: Elderly female, appears acutely ill, arousable to voice but not following commands consistently
+HEENT: Dry mucous membranes, sclera non-icteric
+Neck: Supple, no meningismus
+Cardiovascular: Tachycardic, regular, no murmurs
+Pulmonary: Diminished bibasilar breath sounds, no wheezes
+Abdomen: Soft, mild suprapubic tenderness, no guarding
+Extremities: 1+ pitting edema bilateral LE, skin mottled
+GU: Foley placed — cloudy, malodorous urine
+Neuro: GCS 12 (E3V4M5), no focal deficits noted
+
+LABS (resulted 00:10):
+WBC: 18.4 (left shift, 15% bands)
+Lactate: 4.8 mmol/L
+BMP: Cr 2.4 (baseline 1.6), BUN 42, K 5.1
+UA: Large LE, Nitrite positive, >50 WBC
+Blood cultures: Drawn at 00:30
+Urine culture: Sent
+
+IMAGING:
+CXR (23:50): Low lung volumes, small bilateral pleural effusions. No acute infiltrate.
+CT Head (01:00): Age-appropriate changes. No acute intracranial pathology.
+
+ANTIBIOTIC ADMINISTRATION: Ceftriaxone 2g IV given at 01:45
+
+MDM: Sepsis secondary to UTI in elderly female with multiple comorbidities. Presenting with altered mental status, hypotension, tachycardia, fever, and elevated lactate. Meeting SIRS criteria and sepsis-3 definition with organ dysfunction (AMS, elevated Cr from baseline, elevated lactate). IV fluid resuscitation initiated. Broad spectrum antibiotics ordered.
+
+ASSESSMENT/PLAN:
+1. Sepsis secondary to UTI — antibiotics, fluid resuscitation, ICU admission
+2. AKI on CKD — likely prerenal, monitor with fluids
+3. Altered mental status — likely secondary to sepsis vs UTI, CT head negative
+4. Admit to MICU for sepsis protocol
+
+DISPOSITION: Admitted to MICU at 04:30.
+
+---
+TIMELINE SUMMARY:
+22:15 — Arrival, VS show sepsis (hypotension, tachycardia, fever)
+22:20 — IV access, O2 started
+22:45 — First fluid bolus
+00:10 — Labs resulted showing lactate 4.8, WBC 18.4 with bandemia
+00:30 — Blood cultures drawn (30 min AFTER lab results)
+01:45 — Antibiotics administered (3.5 hours after arrival, 1.5 hours after labs)
+04:30 — ICU admission
+
+SUBSEQUENT EVENT:
+Patient developed septic shock requiring vasopressors in the MICU. Blood cultures positive for E. coli. Patient spent 12 days in ICU, developed ARDS requiring intubation for 6 days. Eventually recovered and discharged to rehab facility after 21 total hospital days. Family concerned about delayed antibiotic administration.

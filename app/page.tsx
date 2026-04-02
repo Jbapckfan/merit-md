@@ -3,7 +3,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import CountUp from "@/components/CountUp";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -62,16 +61,16 @@ function ClipboardCheckIcon({ className = "w-8 h-8" }: { className?: string }) {
 const cards = [
   {
     icon: ShieldHeartIcon,
-    iconColor: "text-[#22c55e]",
-    iconBg: "bg-[#22c55e]/10 border-[#22c55e]/20",
-    glowColor: "rgba(34, 197, 94, 0.15)",
+    iconColor: "text-[#d97706]",
+    iconBg: "bg-[#d97706]/10 border-[#d97706]/20",
+    glowColor: "rgba(217, 119, 6, 0.15)",
     headline: "Review Your Care",
     description:
       "Upload your medical records and find out in minutes if you received appropriate care. Plain-language answers, no legal jargon.",
     priceTag: "Starting at $49",
     buttonText: "Check My Case",
     href: "/patient",
-    brand: "MedMal Review Buddy",
+    brand: "MedMal Review for Patients",
     subOptions: null,
   },
   {
@@ -98,16 +97,16 @@ const cards = [
   },
   {
     icon: StethoscopeIcon,
-    iconColor: "text-[#a78bfa]",
-    iconBg: "bg-[#a78bfa]/10 border-[#a78bfa]/20",
-    glowColor: "rgba(167, 139, 250, 0.15)",
+    iconColor: "text-[#22c55e]",
+    iconBg: "bg-[#22c55e]/10 border-[#22c55e]/20",
+    glowColor: "rgba(34, 197, 94, 0.15)",
     headline: "Protect Your Practice",
     description:
       "Real-time chart review for your shift. Complaint-specific red flags, must-document items, dispo traps, and return precautions -- in 10 seconds.",
     priceTag: "Free",
     buttonText: "Open Clinical Tool",
     href: "/clinician",
-    brand: "MedMal Review Pro",
+    brand: "ChartReview Pro \u2014 Free Tools",
     subOptions: null,
   },
   {
@@ -139,56 +138,21 @@ export default function GatewayPage() {
     <>
       <Header />
       <main className="overflow-hidden">
-        {/* ── Animated Gradient Mesh Background ── */}
+        {/* ── Subtle Background ── */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <div
-            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.07]"
+            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.05]"
             style={{
               background: "radial-gradient(circle, #4f8ff7 0%, transparent 70%)",
-              animation: "floatOrb1 20s ease-in-out infinite",
             }}
           />
           <div
-            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.05]"
+            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.04]"
             style={{
               background: "radial-gradient(circle, #6ba1ff 0%, transparent 70%)",
-              animation: "floatOrb2 25s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute top-[40%] left-[50%] w-[40vw] h-[40vw] rounded-full opacity-[0.04]"
-            style={{
-              background: "radial-gradient(circle, #9490b0 0%, transparent 70%)",
-              animation: "floatOrb3 18s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-              backgroundSize: "128px 128px",
             }}
           />
         </div>
-
-        {/* ── CSS Animations ── */}
-        <style jsx global>{`
-          @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(5%, 8%) scale(1.05); }
-            66% { transform: translate(-3%, -5%) scale(0.95); }
-          }
-          @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-4%, -6%) scale(1.1); }
-            66% { transform: translate(6%, 3%) scale(0.9); }
-          }
-          @keyframes floatOrb3 {
-            0%, 100% { transform: translate(-50%, 0) scale(1); }
-            50% { transform: translate(-50%, -8%) scale(1.15); }
-          }
-        `}</style>
 
         {/* ══════════════════ HERO ══════════════════ */}
         <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-12">
@@ -200,19 +164,21 @@ export default function GatewayPage() {
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
-              AI-Powered Medical{" "}
-              <span className="bg-gradient-to-r from-[#4f8ff7] to-[#a78bfa] bg-clip-text text-transparent">
-                Chart Intelligence
-              </span>
+              Medical Charts.{" "}
+              <span className="bg-gradient-to-r from-[#4f8ff7] to-[#22c55e] bg-clip-text text-transparent">
+                Reviewed by Experts.
+              </span>{" "}
+              Powered by AI.
             </h1>
             <p className="text-[#9490b0] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Built by emergency physicians. Trusted by attorneys. Used by clinicians.
+              Whether you&apos;re a patient questioning your care, an attorney screening a case,
+              or a physician signing a chart &mdash; we catch what others miss.
             </p>
           </motion.div>
 
-          {/* ── Three Cards ── */}
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {cards.map((card, i) => {
+          {/* ── Primary Cards (3) ── */}
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {cards.slice(0, 3).map((card, i) => {
               const Icon = card.icon;
               return (
                 <motion.div
@@ -223,10 +189,6 @@ export default function GatewayPage() {
                     duration: 0.6,
                     delay: 0.3 + i * 0.15,
                     ease: [0.21, 0.47, 0.32, 0.98],
-                  }}
-                  whileHover={{
-                    y: -8,
-                    boxShadow: `0 25px 60px ${card.glowColor}`,
                   }}
                   className="relative group bg-[#15111e]/60 backdrop-blur-xl border border-[#2a2440] rounded-2xl p-8 flex flex-col
                              hover:border-[#3d3660] transition-colors duration-300"
@@ -263,13 +225,6 @@ export default function GatewayPage() {
                     </div>
                   ) : null}
 
-                  {/* Price tag */}
-                  <div className="mb-5">
-                    <span className="text-[#e5e2ff] text-sm font-semibold bg-[#1c1729] border border-[#2a2440] px-3 py-1 rounded-full">
-                      {card.priceTag}
-                    </span>
-                  </div>
-
                   {/* Brand label */}
                   <p className="text-[#9490b0]/60 text-xs uppercase tracking-wider font-medium mb-4">
                     {card.brand}
@@ -292,33 +247,62 @@ export default function GatewayPage() {
             })}
           </div>
 
-          {/* ── Stats Bar ── */}
+          {/* ── Secondary Strip: Free Clinical Tools ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.75, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="max-w-6xl mx-auto w-full mb-20"
+          >
+            <Link
+              href="/clinician"
+              className="block bg-[#15111e]/40 backdrop-blur-xl border border-[#2a2440] rounded-xl px-8 py-5
+                         hover:border-[#22c55e]/40 hover:bg-[#22c55e]/5 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center">
+                    <StethoscopeIcon className="w-5 h-5 text-[#22c55e]" />
+                  </div>
+                  <div>
+                    <span className="text-[#e5e2ff] font-semibold">Free Clinical Tools</span>
+                    <span className="text-[#9490b0] text-sm ml-2 hidden sm:inline">
+                      &mdash; Quick-reference red flags, documentation checklists, and dispo safety checks for your shift
+                    </span>
+                    <p className="text-[#9490b0] text-sm sm:hidden mt-1">
+                      Quick-reference red flags, documentation checklists, and dispo safety checks for your shift
+                    </p>
+                  </div>
+                </div>
+                <svg className="w-5 h-5 text-[#9490b0] group-hover:text-[#22c55e] transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* ── Capability Bar ── */}
           <AnimatedSection className="w-full max-w-5xl mx-auto mb-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-[#e5e2ff]">
-                  <CountUp target={2800} suffix="+" />
-                </div>
-                <p className="text-[#9490b0] text-xs mt-1">Cases Analyzed</p>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-center">
+              <div className="flex items-center gap-2 text-[#9490b0] text-sm">
+                <svg className="w-4 h-4 text-[#4f8ff7]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-[#e5e2ff] font-semibold">50-State Law Database</span>
               </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-[#e5e2ff]">
-                  <CountUp target={340} suffix="+" />
-                </div>
-                <p className="text-[#9490b0] text-xs mt-1">Law Firms</p>
+              <span className="text-[#2a2440] hidden md:inline">|</span>
+              <div className="flex items-center gap-2 text-[#9490b0] text-sm">
+                <svg className="w-4 h-4 text-[#4f8ff7]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-[#e5e2ff] font-semibold">18 Clinical Categories</span>
               </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-[#e5e2ff]">
-                  <CountUp target={50} />
-                  <span className="text-lg font-semibold">-State</span>
-                </div>
-                <p className="text-[#9490b0] text-xs mt-1">Law Database</p>
-              </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-[#e5e2ff]">
-                  <CountUp target={18} />
-                </div>
-                <p className="text-[#9490b0] text-xs mt-1">Clinical Categories</p>
+              <span className="text-[#2a2440] hidden md:inline">|</span>
+              <div className="flex items-center gap-2 text-[#9490b0] text-sm">
+                <svg className="w-4 h-4 text-[#4f8ff7]" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-[#e5e2ff] font-semibold">Board-Certified Physician Review Available</span>
               </div>
             </div>
           </AnimatedSection>

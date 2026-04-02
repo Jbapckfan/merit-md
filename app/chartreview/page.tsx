@@ -83,8 +83,8 @@ const audienceCards = [
   },
   {
     icon: AcademicIcon,
-    iconColor: "text-[#a78bfa]",
-    iconBg: "bg-[#a78bfa]/10 border-[#a78bfa]/20",
+    iconColor: "text-[#4f8ff7]",
+    iconBg: "bg-[#4f8ff7]/10 border-[#4f8ff7]/20",
     title: "Residency Programs",
     description: "Teach documentation excellence. Give residents real-time feedback on every chart so they build good habits from day one.",
   },
@@ -141,10 +141,11 @@ const steps = [
 
 const pricingTiers = [
   {
-    name: "Individual Physician",
+    name: "Individual",
     price: "$99",
-    period: "/month",
+    period: "/physician/mo",
     description: "Unlimited reviews for a single physician",
+    trialLabel: "14-day free trial",
     features: [
       "Unlimited chart reviews",
       "Shift-end summary",
@@ -157,8 +158,9 @@ const pricingTiers = [
   {
     name: "Group Practice",
     price: "$79",
-    period: "/physician/month",
+    period: "/physician/mo",
     description: "5-20 physicians",
+    trialLabel: "14-day free trial",
     features: [
       "Everything in Individual",
       "Group analytics dashboard",
@@ -171,8 +173,9 @@ const pricingTiers = [
   {
     name: "Hospital / Health System",
     price: "$59",
-    period: "/physician/month",
+    period: "/physician/mo",
     description: "20+ physicians",
+    trialLabel: "14-day free trial",
     features: [
       "Everything in Group",
       "EHR integration support",
@@ -185,8 +188,9 @@ const pricingTiers = [
   {
     name: "Residency Program",
     price: "$39",
-    period: "/resident/month",
+    period: "/resident/mo",
     description: "Educational pricing",
+    trialLabel: "14-day free trial",
     features: [
       "Everything in Individual",
       "Teaching mode with explanations",
@@ -201,12 +205,12 @@ const pricingTiers = [
 const testimonials = [
   {
     quote: "I caught a missing troponin follow-up plan on a chest pain discharge. That would have been a lawsuit waiting to happen.",
-    author: "Emergency Physician",
+    author: "Dr. M., Emergency Physician, Texas",
     role: "Level 1 Trauma Center",
   },
   {
     quote: "Our group's documentation scores improved 40% in the first month. Risk management noticed before we even told them.",
-    author: "Medical Director",
+    author: "Dr. R., Medical Director, Ohio",
     role: "Community ED, 12 physicians",
   },
 ];
@@ -218,56 +222,21 @@ export default function ChartReviewLanding() {
     <>
       <Header />
       <main className="overflow-hidden">
-        {/* ── Background ── */}
+        {/* ── Subtle Background ── */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <div
-            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.07]"
+            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.05]"
             style={{
               background: "radial-gradient(circle, #22c55e 0%, transparent 70%)",
-              animation: "floatOrb1 20s ease-in-out infinite",
             }}
           />
           <div
-            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.05]"
+            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.04]"
             style={{
               background: "radial-gradient(circle, #4f8ff7 0%, transparent 70%)",
-              animation: "floatOrb2 25s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute top-[40%] left-[50%] w-[40vw] h-[40vw] rounded-full opacity-[0.04]"
-            style={{
-              background: "radial-gradient(circle, #a78bfa 0%, transparent 70%)",
-              animation: "floatOrb3 18s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-              backgroundSize: "128px 128px",
             }}
           />
         </div>
-
-        {/* ── CSS Animations ── */}
-        <style jsx global>{`
-          @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(5%, 8%) scale(1.05); }
-            66% { transform: translate(-3%, -5%) scale(0.95); }
-          }
-          @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-4%, -6%) scale(1.1); }
-            66% { transform: translate(6%, 3%) scale(0.9); }
-          }
-          @keyframes floatOrb3 {
-            0%, 100% { transform: translate(-50%, 0) scale(1); }
-            50% { transform: translate(-50%, -8%) scale(1.15); }
-          }
-        `}</style>
 
         {/* ══════════════════ HERO ══════════════════ */}
         <section className="relative min-h-[80vh] flex flex-col items-center justify-center px-6 pt-24 pb-16">
@@ -446,10 +415,15 @@ export default function ChartReviewLanding() {
                     </div>
                   )}
                   <h3 className="text-[#e5e2ff] font-bold text-lg mb-1">{tier.name}</h3>
-                  <p className="text-[#9490b0] text-xs mb-4">{tier.description}</p>
-                  <div className="mb-6">
+                  <p className="text-[#9490b0] text-xs mb-2">{tier.description}</p>
+                  <div className="mb-2">
                     <span className="text-3xl font-bold text-[#e5e2ff]">{tier.price}</span>
                     <span className="text-[#9490b0] text-sm">{tier.period}</span>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-[#22c55e] text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/20 px-2.5 py-1 rounded-full">
+                      {tier.trialLabel}
+                    </span>
                   </div>
                   <ul className="space-y-2.5 flex-1 mb-6">
                     {tier.features.map((feature) => (
@@ -467,7 +441,7 @@ export default function ChartReviewLanding() {
                         : "border border-[#2a2440] hover:border-[#22c55e]/50 text-[#e5e2ff] hover:bg-[#22c55e]/10"
                     }`}
                   >
-                    Start Free Trial
+                    Start 14-Day Free Trial
                   </Link>
                 </motion.div>
               ))}
@@ -502,8 +476,8 @@ export default function ChartReviewLanding() {
                 </p>
               </div>
               <div className="bg-[#15111e]/60 backdrop-blur-xl border border-[#2a2440] rounded-2xl p-6">
-                <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <div className="w-12 h-12 rounded-xl bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-[#22c55e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                   </svg>
                 </div>

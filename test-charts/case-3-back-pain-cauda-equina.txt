@@ -1,0 +1,51 @@
+EMERGENCY DEPARTMENT RECORD
+De-identified for testing purposes
+
+PATIENT: [REDACTED] | DOB: [REDACTED] | MRN: [REDACTED]
+DATE OF SERVICE: 02/22/2026
+ARRIVAL TIME: 09:15 | DEPARTURE TIME: 12:30
+
+TRIAGE NOTE (09:15):
+45 y/o male presenting with low back pain x 3 days, worsening. States pain radiates to bilateral legs. History of chronic low back pain, prior lumbar disc herniation (L4-5, treated conservatively). Current medications: naproxen PRN.
+VS: BP 142/88, HR 78, RR 16, O2 99% RA, Temp 98.6F
+ESI Level: 3
+Pain: 8/10
+
+NURSING NOTE (09:30):
+Patient ambulatory to bed but moving slowly. Requesting pain medication.
+
+NURSING NOTE (10:00):
+Toradol 30mg IV given per MD order. Patient resting.
+
+PHYSICIAN NOTE:
+HPI: 45M with known history of lumbar disc disease (L4-5 herniation 3 years ago, managed conservatively) presenting with 3-day history of worsening LBP with bilateral leg radiation. Patient states this is similar to prior episodes but more severe. Pain is constant, 8/10, worse with movement. Reports some numbness in both feet which he attributes to "the disc acting up again." Denies recent trauma, fever, weight loss, or IV drug use. Denies bowel or bladder changes.
+
+ROS: Negative except as noted in HPI.
+
+PHYSICAL EXAM:
+General: NAD at rest, uncomfortable with movement
+Back: Paravertebral muscle spasm bilateral lumbar region, tenderness L4-S1, limited ROM due to pain. No midline bony tenderness. SLR positive bilateral at 30 degrees.
+Neurological: Strength 4/5 bilateral hip flexors, 4/5 bilateral dorsiflexion, 5/5 bilateral plantar flexion. Sensation diminished to light touch bilateral L5 distribution. DTRs 2+ bilateral patella, 1+ bilateral Achilles.
+Extremities: No edema, pulses intact
+
+LABS: None ordered
+IMAGING: None ordered
+
+MDM: Chronic low back pain with acute exacerbation and known disc disease. Bilateral radiculopathy consistent with known L4-5 pathology. No red flags for infection or malignancy (afebrile, no weight loss, no IVDU). Neurological exam shows chronic radiculopathy pattern consistent with history. Pain management and outpatient MRI follow-up appropriate.
+
+ASSESSMENT/PLAN:
+1. Acute on chronic LBP with bilateral radiculopathy — likely disc herniation exacerbation
+2. Methylprednisolone dose pack prescribed
+3. Cyclobenzaprine 10mg TID prescribed
+4. Ibuprofen 800mg TID prescribed
+5. Outpatient MRI ordered (scheduled for 2 weeks)
+6. Discharge home with precautions
+7. Follow up with orthopedic spine in 2-3 weeks
+
+DISCHARGE INSTRUCTIONS: Handout provided for "Low Back Pain." Return if pain worsens, new weakness, or inability to urinate.
+
+DISPOSITION: Discharged home at 12:30. Ambulatory with antalgic gait.
+
+---
+SUBSEQUENT EVENT:
+Patient presented to same ED 36 hours later via ambulance, unable to walk. New onset urinary retention (800mL on straight cath), saddle anesthesia, bilateral foot drop. Emergent MRI showed large L4-5 disc herniation with cauda equina compression. Emergency decompressive laminectomy performed within 6 hours. Patient left with permanent bowel/bladder dysfunction and bilateral lower extremity weakness despite surgery. Neurosurgery noted that earlier intervention (at first visit) would have had significantly better neurological outcomes.

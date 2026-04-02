@@ -320,8 +320,8 @@ export default function PatientReportPage() {
             {/* Questions for a Lawyer */}
             {report.questionsForLawyer.length > 0 && (
               <AnimatedSection delay={0.5}>
-                <section className="bg-[#15111e]/80 border border-[#a78bfa]/20 rounded-2xl p-6 mt-6">
-                  <h3 className="text-[#a78bfa] text-lg font-semibold mb-4">
+                <section className="bg-[#15111e]/80 border border-[#d97706]/20 rounded-2xl p-6 mt-6">
+                  <h3 className="text-[#d97706] text-lg font-semibold mb-4">
                     Questions to Ask a Lawyer
                   </h3>
                   <p className="text-[#9490b0] text-xs mb-4">
@@ -331,7 +331,7 @@ export default function PatientReportPage() {
                   <ul className="space-y-3">
                     {report.questionsForLawyer.map((q, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-[#e5e2ff]">
-                        <svg className="w-4 h-4 text-[#a78bfa] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-4 h-4 text-[#d97706] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -349,7 +349,7 @@ export default function PatientReportPage() {
 
             {/* Find an Attorney CTA */}
             <AnimatedSection delay={0.6}>
-              <section className="bg-gradient-to-r from-[#4f8ff7]/10 to-[#a78bfa]/10 border border-[#4f8ff7]/20 rounded-2xl p-6 md:p-8 mt-6 text-center">
+              <section className="bg-gradient-to-r from-[#4f8ff7]/10 to-[#d97706]/10 border border-[#4f8ff7]/20 rounded-2xl p-6 md:p-8 mt-6 text-center">
                 <h3 className="text-[#e5e2ff] text-xl font-bold mb-2">
                   Ready to Talk to a Lawyer?
                 </h3>
@@ -381,7 +381,7 @@ export default function PatientReportPage() {
                     <button className="flex-1 bg-[#15111e] border border-[#4f8ff7]/30 hover:bg-[#4f8ff7]/10 text-[#4f8ff7] px-4 py-2.5 rounded-xl text-sm font-medium transition text-center">
                       Full Assessment -- $100 more
                     </button>
-                    <button className="flex-1 bg-[#15111e] border border-[#a78bfa]/30 hover:bg-[#a78bfa]/10 text-[#a78bfa] px-4 py-2.5 rounded-xl text-sm font-medium transition text-center">
+                    <button className="flex-1 bg-[#15111e] border border-[#d97706]/30 hover:bg-[#d97706]/10 text-[#d97706] px-4 py-2.5 rounded-xl text-sm font-medium transition text-center">
                       Attorney Match -- $200 more
                     </button>
                   </div>

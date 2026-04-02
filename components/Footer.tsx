@@ -55,13 +55,19 @@ export default function Footer() {
             <h4 className="text-merit-text font-medium text-sm mb-4">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <span className="text-merit-text-muted text-sm cursor-default">Terms of Service</span>
+                <Link href="/legal/terms" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  Terms of Service
+                </Link>
               </li>
               <li>
-                <span className="text-merit-text-muted text-sm cursor-default">Privacy Policy</span>
+                <Link href="/legal/privacy" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <span className="text-merit-text-muted text-sm cursor-default">HIPAA Compliance</span>
+                <Link href="/legal/security" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  HIPAA Compliance
+                </Link>
               </li>
               <li>
                 <a href="mailto:contact@medmalreview.com" className="text-merit-text-muted hover:text-merit-text text-sm transition">

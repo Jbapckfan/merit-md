@@ -1,0 +1,55 @@
+EMERGENCY DEPARTMENT RECORD
+De-identified for testing purposes
+
+PATIENT: [REDACTED] | DOB: [REDACTED] | MRN: [REDACTED]
+DATE OF SERVICE: 01/15/2026
+ARRIVAL TIME: 14:32 | DEPARTURE TIME: 18:45
+
+TRIAGE NOTE (14:32):
+52 y/o male presenting with chest pain x 2 hours. Pain described as pressure-like, substernal. Denies radiation. Rates pain 6/10. History of HTN, hyperlipidemia, diabetes type 2, 30 pack-year smoking history. Currently on lisinopril, atorvastatin, metformin.
+VS: BP 158/92, HR 88, RR 18, O2 98% RA, Temp 98.4F
+ESI Level: 3
+
+NURSING NOTE (14:45):
+Patient placed on monitor. 12-lead ECG obtained.
+
+NURSING NOTE (15:10):
+Patient resting comfortably. Pain improved to 4/10 after position change. No distress noted.
+
+PHYSICIAN NOTE:
+HPI: 52 year old male with PMH HTN, HLD, DM2 presents with substernal chest pressure for 2 hours. Patient states pain started while watching TV. No exertional component. No radiation to arm or jaw. No diaphoresis. No SOB. No nausea. Pain improved with position change. Patient has been eating and drinking normally.
+
+ROS: Constitutional negative. Cardiovascular: chest pressure as above. Pulmonary: negative. GI: negative. MSK: negative. All other systems reviewed and negative.
+
+PHYSICAL EXAM:
+General: NAD, comfortable appearing
+HEENT: NCAT, PERRL, MMM
+Neck: Supple, no JVD
+Cardiovascular: RRR, no murmurs/rubs/gallops
+Pulmonary: CTAB
+Abdomen: Soft, NT, ND
+Extremities: No edema, pulses 2+ bilaterally
+Skin: Warm, dry
+
+LABS:
+Troponin I: 0.03 ng/mL (ref <0.04)
+CBC: WNL
+BMP: Glucose 188, otherwise WNL
+
+ECG: Normal sinus rhythm, rate 86. No ST changes. No T-wave inversions.
+
+MDM: Chest pain, likely musculoskeletal given positional component and improvement. ECG unremarkable. Troponin negative. Low concern for ACS.
+
+ASSESSMENT/PLAN:
+1. Chest pain - musculoskeletal
+2. Prescribe ibuprofen 600mg TID PRN
+3. Discharge home
+4. Follow up with PCP in 1-2 weeks
+
+DISCHARGE INSTRUCTIONS: Handout provided for "Chest Pain." Return if symptoms worsen.
+
+DISPOSITION: Discharged home at 18:45. Patient ambulatory, VSS.
+
+---
+SUBSEQUENT EVENT (not part of ED chart):
+Patient returned to different ED 14 hours later via EMS with STEMI. Troponin at second visit: 8.4 ng/mL. Taken to cath lab — 95% LAD occlusion with stent placement. Patient survived with reduced EF of 35%.

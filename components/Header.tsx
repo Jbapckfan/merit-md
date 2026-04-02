@@ -20,10 +20,10 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
     brandName = "MedMal Review Pro";
     brandHref = "/attorney";
   } else if (isPatientSection) {
-    brandName = "MedMal Review Buddy";
+    brandName = "MedMal Review for Patients";
     brandHref = "/patient";
   } else if (isClinicianSection) {
-    brandName = "MedMal Review Pro";
+    brandName = "ChartReview Pro \u2014 Free Tools";
     brandHref = "/clinician";
   } else if (isChartReviewSection) {
     brandName = "ChartReview Pro";

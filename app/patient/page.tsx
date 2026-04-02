@@ -3,7 +3,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import CountUp from "@/components/CountUp";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -13,14 +12,14 @@ import { useState } from "react";
 const stagger = {
   container: {
     hidden: {},
-    show: { transition: { staggerChildren: 0.12 } },
+    show: { transition: { staggerChildren: 0.06 } },
   },
   item: {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] as const },
+      transition: { duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] as const },
     },
   },
 };
@@ -68,21 +67,6 @@ const pricingTiers = [
     cta: "Get Full Assessment",
     highlight: true,
     badge: "Best Value",
-  },
-  {
-    name: "Attorney Match",
-    price: "$249",
-    description: "Full assessment + matched with a vetted attorney in your area",
-    features: [
-      "Everything in Full Assessment",
-      "Matched with a malpractice attorney",
-      "Attorney reviews your report",
-      "Free initial consultation",
-      "No obligation to hire",
-    ],
-    cta: "Get Matched",
-    highlight: false,
-    badge: "Full Service",
   },
 ];
 
@@ -178,73 +162,24 @@ export default function PatientLandingPage() {
     <>
       <Header />
       <main className="overflow-hidden">
-        {/* ── Background ── */}
+        {/* ── Subtle Background ── */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <div
-            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.07]"
+            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full opacity-[0.05]"
             style={{
               background: "radial-gradient(circle, #4f8ff7 0%, transparent 70%)",
-              animation: "floatOrb1 20s ease-in-out infinite",
             }}
           />
           <div
-            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.05]"
+            className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full opacity-[0.04]"
             style={{
               background: "radial-gradient(circle, #6ba1ff 0%, transparent 70%)",
-              animation: "floatOrb2 25s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute top-[40%] left-[50%] w-[40vw] h-[40vw] rounded-full opacity-[0.04]"
-            style={{
-              background: "radial-gradient(circle, #9490b0 0%, transparent 70%)",
-              animation: "floatOrb3 18s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")",
-              backgroundSize: "128px 128px",
             }}
           />
         </div>
 
-        <style jsx global>{`
-          @keyframes floatOrb1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(5%, 8%) scale(1.05); }
-            66% { transform: translate(-3%, -5%) scale(0.95); }
-          }
-          @keyframes floatOrb2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-4%, -6%) scale(1.1); }
-            66% { transform: translate(6%, 3%) scale(0.9); }
-          }
-          @keyframes floatOrb3 {
-            0%, 100% { transform: translate(-50%, 0) scale(1); }
-            50% { transform: translate(-50%, -8%) scale(1.15); }
-          }
-          @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0; }
-            100% { transform: scale(0.8); opacity: 0; }
-          }
-        `}</style>
-
         {/* ══════════════════ HERO ══════════════════ */}
         <section className="relative min-h-[90vh] flex items-center">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[#4f8ff7]/10"
-              style={{ animation: "pulse-ring 4s ease-out infinite" }}
-            />
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-[#4f8ff7]/5"
-              style={{ animation: "pulse-ring 4s ease-out 1s infinite" }}
-            />
-          </div>
 
           <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-36">
             <div className="max-w-4xl mx-auto text-center">
@@ -271,7 +206,7 @@ export default function PatientLandingPage() {
                     variants={stagger.item}
                     className={
                       word === "Wrong" || word === "Care?"
-                        ? "bg-gradient-to-r from-[#4f8ff7] to-[#a78bfa] bg-clip-text text-transparent"
+                        ? "bg-gradient-to-r from-[#d97706] to-[#f59e0b] bg-clip-text text-transparent"
                         : ""
                     }
                   >
@@ -338,34 +273,30 @@ export default function PatientLandingPage() {
           </div>
         </section>
 
-        {/* ══════════════════ SOCIAL PROOF ══════════════════ */}
+        {/* ══════════════════ CAPABILITY BAR ══════════════════ */}
         <section className="py-16 border-t border-[#2a2440]/50">
           <div className="max-w-7xl mx-auto px-6">
             <AnimatedSection>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#e5e2ff]">
-                    <CountUp target={12400} suffix="+" />
-                  </div>
-                  <p className="text-[#9490b0] text-sm mt-1">Patients Helped</p>
+              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-center">
+                <div className="flex items-center gap-2 text-sm">
+                  <svg className="w-4 h-4 text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-[#e5e2ff] font-semibold">50-State Law Database</span>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#e5e2ff]">
-                    <CountUp target={89} suffix="%" />
-                  </div>
-                  <p className="text-[#9490b0] text-sm mt-1">Would Recommend</p>
+                <span className="text-[#2a2440] hidden md:inline">|</span>
+                <div className="flex items-center gap-2 text-sm">
+                  <svg className="w-4 h-4 text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-[#e5e2ff] font-semibold">18 Clinical Categories</span>
                 </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#e5e2ff]">
-                    <CountUp target={5} suffix=" min" />
-                  </div>
-                  <p className="text-[#9490b0] text-sm mt-1">Avg. Results Time</p>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#e5e2ff]">
-                    $<CountUp target={450} suffix="" />
-                  </div>
-                  <p className="text-[#9490b0] text-sm mt-1">Avg. Saved vs. Lawyer Consult</p>
+                <span className="text-[#2a2440] hidden md:inline">|</span>
+                <div className="flex items-center gap-2 text-sm">
+                  <svg className="w-4 h-4 text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-[#e5e2ff] font-semibold">Board-Certified Physician Review Available</span>
                 </div>
               </div>
             </AnimatedSection>
@@ -475,7 +406,7 @@ export default function PatientLandingPage() {
               </p>
             </AnimatedSection>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {pricingTiers.map((tier, i) => (
                 <AnimatedSection key={tier.name} delay={i * 0.1}>
                   <motion.div
@@ -483,8 +414,6 @@ export default function PatientLandingPage() {
                       ${
                         tier.highlight
                           ? "bg-[#15111e]/80 backdrop-blur-xl border-2 border-[#4f8ff7] shadow-xl shadow-[#4f8ff7]/10"
-                          : tier.badge === "Full Service"
-                          ? "bg-[#15111e]/80 backdrop-blur-xl border border-[#a78bfa]/30 shadow-lg shadow-[#a78bfa]/5"
                           : "bg-[#15111e]/80 backdrop-blur-xl border border-[#2a2440] shadow-lg shadow-black/20"
                       }`}
                     whileHover={{
@@ -497,13 +426,7 @@ export default function PatientLandingPage() {
                   >
                     {tier.badge && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span
-                          className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                            tier.highlight
-                              ? "bg-[#4f8ff7] text-white"
-                              : "bg-[#a78bfa] text-white"
-                          }`}
-                        >
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#4f8ff7] text-white">
                           {tier.badge}
                         </span>
                       </div>
@@ -540,6 +463,15 @@ export default function PatientLandingPage() {
                 </AnimatedSection>
               ))}
             </div>
+
+            {/* Attorney match upsell */}
+            <AnimatedSection delay={0.3} className="mt-8 max-w-3xl mx-auto">
+              <div className="bg-[#15111e]/40 border border-[#2a2440] rounded-xl px-6 py-4 text-center">
+                <p className="text-[#9490b0] text-sm">
+                  Need an attorney? After your assessment, we can match you with a vetted malpractice lawyer in your area.
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 
@@ -556,8 +488,8 @@ export default function PatientLandingPage() {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <AnimatedSection delay={0}>
                 <div className="bg-[#15111e]/80 backdrop-blur-xl border border-[#2a2440] rounded-2xl p-8 text-center h-full hover:border-[#3d3660] transition-all duration-300">
-                  <div className="w-14 h-14 rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex items-center justify-center mx-auto mb-5">
-                    <svg className="w-7 h-7 text-[#a78bfa]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-14 h-14 rounded-2xl bg-[#d97706]/10 border border-[#d97706]/20 flex items-center justify-center mx-auto mb-5">
+                    <svg className="w-7 h-7 text-[#d97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -645,7 +577,7 @@ export default function PatientLandingPage() {
 
         {/* ══════════════════ CTA ══════════════════ */}
         <section className="py-24 md:py-32 border-t border-[#2a2440]/50 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#4f8ff7]/10 via-[#a78bfa]/10 to-[#4f8ff7]/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#4f8ff7]/10 via-[#d97706]/10 to-[#4f8ff7]/10" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a14] via-transparent to-[#0c0a14]" />
 
           <div
@@ -659,7 +591,7 @@ export default function PatientLandingPage() {
             <AnimatedSection>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 You Deserve{" "}
-                <span className="bg-gradient-to-r from-[#4f8ff7] to-[#a78bfa] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#d97706] to-[#f59e0b] bg-clip-text text-transparent">
                   Answers.
                 </span>
               </h2>

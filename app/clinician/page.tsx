@@ -359,10 +359,23 @@ export default function ClinicianPage() {
             />
 
             <p className="text-center text-merit-text-muted text-xs pt-4 pb-2">
-              Data sourced from MedMal Review Pro clinical knowledge base.
+              Data sourced from ChartReview Pro clinical knowledge base.
               <br />
               Not a substitute for clinical judgment.
             </p>
+
+            {/* ChartReview Pro upgrade CTA */}
+            <Link
+              href="/chartreview"
+              className="block mt-4 bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-xl px-5 py-4 text-center hover:bg-[#22c55e]/15 transition-colors"
+            >
+              <p className="text-[#22c55e] font-semibold text-sm mb-1">
+                Want comprehensive chart review before you sign?
+              </p>
+              <p className="text-merit-text-muted text-xs">
+                Try ChartReview Pro &mdash; $99/month for unlimited pre-sign reviews.
+              </p>
+            </Link>
           </div>
         )}
       </main>
