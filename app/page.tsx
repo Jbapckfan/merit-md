@@ -184,7 +184,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {/* Single Scan */}
               <div className="bg-merit-card border border-merit-border rounded-2xl p-8 hover:border-merit-border-hover transition">
                 <h3 className="text-merit-text-muted text-sm font-medium uppercase tracking-wider mb-2">
@@ -287,6 +287,46 @@ export default function LandingPage() {
                 >
                   Contact Sales
                 </a>
+              </div>
+
+              {/* Physician Review */}
+              <div className="bg-gradient-to-b from-merit-card to-merit-bg border border-amber-500/30 rounded-2xl p-8 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-amber-500 text-black text-xs font-semibold px-3 py-1 rounded-full">
+                    Expert Review
+                  </span>
+                </div>
+                <h3 className="text-merit-text-muted text-sm font-medium uppercase tracking-wider mb-2">
+                  Physician Review
+                </h3>
+                <div className="mb-1">
+                  <span className="text-4xl font-bold text-merit-text">$1,499</span>
+                  <span className="text-merit-text-muted text-sm ml-1">per case</span>
+                </div>
+                <p className="text-merit-text-muted text-xs mb-6">AI analysis + board-certified ER physician review</p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "Full AI merit analysis",
+                    "Board-certified ER physician review",
+                    "Signed physician attestation letter",
+                    "Phone consultation (30 min)",
+                    "Expert witness referral if case proceeds",
+                    "Priority 24-hour turnaround",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-merit-text-muted">
+                      <svg className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/signup"
+                  className="block text-center bg-amber-500 hover:bg-amber-400 text-black px-6 py-2.5 rounded-xl text-sm font-semibold transition"
+                >
+                  Request Physician Review
+                </Link>
               </div>
             </div>
           </div>
