@@ -8,8 +8,10 @@
 // Authoritative for both plaintiff and defense counsel pre-screening.
 
 export const LEGAL_FRAMEWORK = {
+  // SOURCE: hard-law | JURISDICTION: universal (elements vary by state) | LAST VERIFIED: 2026-04
   // Elements of medical malpractice
   elementsOfMalpractice: {
+    // SOURCE: hard-law | JURISDICTION: universal | LAST VERIFIED: 2026-04
     duty: {
       description:
         "A physician-patient relationship existed, creating a duty of care",
@@ -20,9 +22,12 @@ export const LEGAL_FRAMEWORK = {
         "Does vicarious liability apply (hospital vs. independent contractor)?",
       ],
       caseReferences: [
-        "Ybarra v. Spangard (1944) — res ipsa loquitur in medical context",
-        "Canterbury v. Spence (1972) — informed consent standard",
+        "Manlove v. Wilmington General Hospital (1961) — hospital's duty to provide emergency care",
       ],
+      // NOTE: Ybarra v. Spangard and Canterbury v. Spence were previously listed here
+      // but belong under more specific doctrines. See:
+      //   - informedConsent.caseReferences for Canterbury v. Spence
+      //   - breach.resIpsaLoquitur for Ybarra v. Spangard
     },
     breach: {
       description:
@@ -35,8 +40,9 @@ export const LEGAL_FRAMEWORK = {
         "Was the deviation a judgment call or a clear protocol failure?",
         "Is there a 'respectable minority' defense for the approach taken?",
       ],
+      // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
       standardSources: [
-        "ACEP Clinical Policies (strongest for EM standard of care)",
+        "ACEP Clinical Policies (influential but NOT the legal standard of care by themselves — the legal standard is what a reasonably competent physician would do under similar circumstances, informed by but not defined by published guidelines; courts consider guidelines as evidence of the standard, not the standard itself)",
         "AHA/ACC Guidelines (cardiac)",
         "Surviving Sepsis Campaign (sepsis)",
         "ATLS (trauma)",
@@ -45,7 +51,30 @@ export const LEGAL_FRAMEWORK = {
         "Joint Commission standards",
         "State medical board regulations",
       ],
+      // SOURCE: hard-law | JURISDICTION: universal | LAST VERIFIED: 2026-04
+      resIpsaLoquitur: {
+        description:
+          "Doctrine allowing inference of negligence when the specific negligent act is unknown, but the injury would not ordinarily occur without negligence",
+        caseReferences: [
+          "Ybarra v. Spangard (1944) — established that res ipsa loquitur applies in medical cases where the patient was unconscious and multiple defendants had control; shifts the burden to each defendant to prove they were not negligent, even when the plaintiff cannot identify which specific provider caused the harm",
+        ],
+      },
     },
+    // SOURCE: hard-law | JURISDICTION: universal (standard varies: patient-rule vs physician-rule by state) | LAST VERIFIED: 2026-04
+    informedConsent: {
+      description:
+        "A subset of duty — the physician's obligation to disclose material risks, alternatives, and expected outcomes so the patient can make an informed decision about treatment",
+      keyQuestions: [
+        "Were the material risks of the procedure/treatment disclosed?",
+        "Were reasonable alternatives (including no treatment) discussed?",
+        "Did the patient have capacity to consent?",
+        "Would a reasonable patient have declined had they been fully informed?",
+      ],
+      caseReferences: [
+        "Canterbury v. Spence (1972) — landmark case establishing the 'reasonable patient' standard for informed consent disclosure; held that a physician must disclose all risks that a reasonable patient would consider material to the decision, replacing the older 'professional standard' (what physicians customarily disclose) in many jurisdictions",
+      ],
+    },
+    // SOURCE: hard-law | JURISDICTION: universal (loss-of-chance varies by state) | LAST VERIFIED: 2026-04
     causation: {
       description:
         "The breach directly caused or substantially contributed to the patient's injury",
@@ -68,6 +97,7 @@ export const LEGAL_FRAMEWORK = {
         "Patient non-compliance contributing to outcome",
       ],
     },
+    // SOURCE: hard-law | JURISDICTION: state-specific (caps and types vary) | LAST VERIFIED: 2026-04
     damages: {
       types: {
         economic: [
@@ -92,21 +122,15 @@ export const LEGAL_FRAMEWORK = {
           "Beneficiaries defined by state statute",
         ],
       },
+      // SOURCE: hard-law | JURISDICTION: state-specific | LAST VERIFIED: 2026-04
       capsByState: {
-        note: "Many states cap non-economic damages in med-mal. Verify current caps.",
-        examples: [
-          "California (MICRA): $350K non-economic (increased from $250K in 2023, rises annually)",
-          "Texas: $250K per physician, $500K total non-economic",
-          "Colorado: $300K non-economic, $1M total",
-          "Florida: Caps repealed in 2023 (no current cap)",
-          "New York: No caps on damages",
-          "Illinois: Caps ruled unconstitutional",
-          "Ohio: $250K-$500K non-economic depending on severity",
-        ],
+        note: "Use getStateLaw() for current, jurisdiction-specific data. See lib/state-law-engine.ts.",
+        engine: "state-law-engine" as const,
       },
     },
   },
 
+  // SOURCE: hard-law | JURISDICTION: state-specific | LAST VERIFIED: 2026-04
   // Statute of limitations (critical screening question)
   statuteOfLimitations: {
     general:
@@ -130,6 +154,7 @@ export const LEGAL_FRAMEWORK = {
     ],
   },
 
+  // SOURCE: hard-law | JURISDICTION: state-specific | LAST VERIFIED: 2026-04
   // Expert witness requirements
   expertWitness: {
     requirements: [
@@ -155,6 +180,7 @@ export const LEGAL_FRAMEWORK = {
     },
   },
 
+  // SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
   // Damages assessment framework
   damagesAssessment: {
     severityScale: {
@@ -180,6 +206,7 @@ export const LEGAL_FRAMEWORK = {
     ],
   },
 
+  // SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
   // Hospital risk management specific
   hospitalRiskManagement: {
     proactiveReviewTriggers: [
@@ -231,8 +258,10 @@ export const LEGAL_FRAMEWORK = {
 } as const;
 
 export const CLINICAL_KNOWLEDGE = {
+  // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
   // Standard of care references by chief complaint
   standardsOfCare: {
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     chestPain: {
       requiredWorkup: [
         "Serial troponins (0h and 3h minimum, preferably 0/1/3h with high-sensitivity)",
@@ -260,6 +289,7 @@ export const CLINICAL_KNOWLEDGE = {
         "Fourth Universal Definition of Myocardial Infarction",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     stroke: {
       requiredWorkup: [
         "NIHSS documented within 15 minutes",
@@ -288,6 +318,7 @@ export const CLINICAL_KNOWLEDGE = {
         "DAWN and DEFUSE 3 trial criteria for extended window thrombectomy",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: federal (CMS SEP-1) + universal | LAST VERIFIED: 2026-04
     sepsis: {
       requiredWorkup: [
         "Lactate within 1 hour of sepsis suspicion",
@@ -316,6 +347,7 @@ export const CLINICAL_KNOWLEDGE = {
         "SSC Hour-1 Bundle recommendations",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     abdominalPain: {
       requiredWorkup: [
         "Serial abdominal exams documented",
@@ -342,6 +374,7 @@ export const CLINICAL_KNOWLEDGE = {
         "ACR Appropriateness Criteria for acute abdominal pain",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     pediatricFever: {
       requiredWorkup: [
         "Age-specific workup (< 29 days: full sepsis workup; 29-60 days: risk stratification)",
@@ -367,6 +400,7 @@ export const CLINICAL_KNOWLEDGE = {
         "PECARN rules for febrile infants",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     fractures: {
       requiredWorkup: [
         "Neurovascular exam documented pre and post reduction",
@@ -393,6 +427,7 @@ export const CLINICAL_KNOWLEDGE = {
         "Ottawa Rules validation studies",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     pulmonaryEmbolism: {
       requiredWorkup: [
         "Wells score or Geneva score calculation and documentation",
@@ -424,6 +459,7 @@ export const CLINICAL_KNOWLEDGE = {
         "YEARS algorithm and PERC rule validation studies",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     toxicologyOverdose: {
       requiredWorkup: [
         "Fingerstick glucose immediately",
@@ -456,6 +492,7 @@ export const CLINICAL_KNOWLEDGE = {
         "EXTRIP workgroup recommendations for extracorporeal treatment in poisoning",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     aorticEmergencies: {
       requiredWorkup: [
         "CT angiography of chest/abdomen/pelvis for suspected dissection",
@@ -487,6 +524,7 @@ export const CLINICAL_KNOWLEDGE = {
         "ADvISED score and ADD (Aortic Dissection Detection) risk score",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     ectopicPregnancy: {
       requiredWorkup: [
         "Quantitative beta-hCG level",
@@ -517,6 +555,7 @@ export const CLINICAL_KNOWLEDGE = {
         "hCG discriminatory zone evidence and institutional variation",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     testicularTorsion: {
       requiredWorkup: [
         "Manual testicular exam with documentation of lie, swelling, cremasteric reflex",
@@ -547,6 +586,7 @@ export const CLINICAL_KNOWLEDGE = {
         "Time-to-OR benchmarks and salvage rate data by duration of symptoms",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     caudaEquina: {
       requiredWorkup: [
         "Complete neurological exam including perineal sensation and rectal tone",
@@ -577,6 +617,7 @@ export const CLINICAL_KNOWLEDGE = {
         "Todd et al. meta-analysis on surgical timing in CES",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     acuteMI: {
       requiredWorkup: [
         "12-lead ECG within 10 minutes of arrival",
@@ -625,6 +666,7 @@ export const CLINICAL_KNOWLEDGE = {
         "Fourth Universal Definition of Myocardial Infarction (2018)",
       ],
     },
+    // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
     backPainRedFlags: {
       requiredWorkup: [
         "Complete neurological exam: motor strength (L2-S1 myotomes), sensation (dermatomes), reflexes (patellar L3-4, Achilles S1-2)",
@@ -669,6 +711,7 @@ export const CLINICAL_KNOWLEDGE = {
         "IDSA Guidelines for Diagnosis and Management of Vertebral Osteomyelitis and Spinal Epidural Abscess",
       ],
     },
+    // SOURCE: guideline + facility-dependent | JURISDICTION: federal (CMS/TJC) + facility | LAST VERIFIED: 2026-04
     medicationErrors: {
       requiredWorkup: [
         "Medication reconciliation documented at admission and discharge",
@@ -717,6 +760,7 @@ export const CLINICAL_KNOWLEDGE = {
         "CMS Conditions of Participation — Pharmaceutical Services",
       ],
     },
+    // SOURCE: guideline + facility-dependent | JURISDICTION: federal (CMS/TJC) + facility | LAST VERIFIED: 2026-04
     fallsInED: {
       requiredWorkup: [
         "Fall risk assessment on arrival (Morse Fall Scale or equivalent)",
@@ -758,6 +802,7 @@ export const CLINICAL_KNOWLEDGE = {
         "State-specific restraint regulations and reporting requirements",
       ],
     },
+    // SOURCE: guideline + hard-law (involuntary holds) | JURISDICTION: state-specific (hold statutes) + universal | LAST VERIFIED: 2026-04
     psychiatricEmergencies: {
       requiredWorkup: [
         "Suicide risk assessment using validated tool (Columbia Suicide Severity Rating Scale — C-SSRS, PHQ-9 Item 9, ASQ)",
@@ -806,6 +851,7 @@ export const CLINICAL_KNOWLEDGE = {
         "SAMHSA National Strategy for Suicide Prevention",
       ],
     },
+    // SOURCE: guideline + facility-dependent | JURISDICTION: universal | LAST VERIFIED: 2026-04
     proceduralComplications: {
       requiredWorkup: [
         "Informed consent documented: risks, benefits, alternatives, and patient questions addressed",
@@ -859,6 +905,7 @@ export const CLINICAL_KNOWLEDGE = {
     },
   },
 
+  // SOURCE: hard-law | JURISDICTION: federal | LAST VERIFIED: 2026-04
   // EMTALA requirements
   emtala: {
     requirements: [
@@ -878,6 +925,7 @@ export const CLINICAL_KNOWLEDGE = {
     ],
   },
 
+  // SOURCE: guideline + facility-dependent | JURISDICTION: federal (CMS) + facility | LAST VERIFIED: 2026-04
   // Documentation standards
   documentation: {
     mdmRequirements: [
@@ -900,6 +948,7 @@ export const CLINICAL_KNOWLEDGE = {
     ],
   },
 
+  // SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
   // Defense-side analysis framework
   defenseFramework: {
     standardOfCareDefense: [

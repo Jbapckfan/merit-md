@@ -39,6 +39,13 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
           )}
 
           <Link
+            href="/clinician"
+            className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+          >
+            For Clinicians
+          </Link>
+
+          <Link
             href={isPatientSection ? "/" : "/patient"}
             className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
           >

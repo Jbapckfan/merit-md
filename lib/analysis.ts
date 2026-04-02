@@ -6,6 +6,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { getKnowledgeForText } from "./clinical-knowledge";
 import { getMedLegalContext } from "./medical-legal-expert";
+import { detectStatesInText, getStateLawSummary } from "./state-law-engine";
 
 const execFileAsync = promisify(execFile);
 
@@ -30,6 +31,13 @@ export interface MeritReport {
 function buildSystemPrompt(clinicalText: string): string {
   const knowledgeContext = getKnowledgeForText(clinicalText);
   const medLegalContext = getMedLegalContext(clinicalText);
+
+  // Detect state references and inject jurisdiction-specific law
+  const detectedStates = detectStatesInText(clinicalText);
+  const stateContext = detectedStates.length > 0
+    ? "\n\n## JURISDICTION-SPECIFIC LAW\nThe following state-specific medical malpractice laws are relevant to this case. Apply these when assessing damages, statute of limitations, expert requirements, and procedural hurdles.\n\n" +
+      detectedStates.map((s) => getStateLawSummary(s.stateCode)).join("\n\n---\n\n")
+    : "";
 
   return `You are an experienced emergency medicine physician AND medical-legal expert reviewing clinical records for potential medical malpractice. You have deep expertise in both the clinical standard of care and the litigation framework. Analyze the following medical records and produce a structured merit assessment.
 
@@ -56,6 +64,7 @@ After clinical analysis, also assess:
 - Suggested deposition questions for the treating physician
 ${knowledgeContext}
 ${medLegalContext}
+${stateContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
 {

@@ -7,6 +7,7 @@
 // Every chart element, its legal significance, and what plaintiff/defense look for.
 
 export const CHART_ANATOMY = {
+  // SOURCE: expert-heuristic + facility-dependent | JURISDICTION: universal | LAST VERIFIED: 2026-04
   edChart: {
     components: {
       triageNote: {
@@ -34,12 +35,16 @@ export const CHART_ANATOMY = {
           "Arrival by EMS but triaged as low acuity",
           "No allergy documentation before medication administration",
         ],
+        // SOURCE: guideline | JURISDICTION: universal | LAST VERIFIED: 2026-04
+        // NOTE: ESI is an ACUITY and RESOURCE prediction algorithm, NOT a mandated wait-time system.
+        // Individual facilities may set internal benchmarks tied to ESI levels, but those are NOT
+        // part of the ESI algorithm itself. Do not conflate facility targets with ESI definitions.
         esiLevels: {
-          1: "Resuscitation — immediate life-saving intervention required. Examples: cardiac arrest, intubation needed, major trauma.",
-          2: "Emergent — high risk situation, confused/lethargic/disoriented, or severe pain/distress. Examples: chest pain with cardiac history, stroke symptoms, acute abdomen. Target: seen within 10 minutes.",
-          3: "Urgent — requires two or more resources (labs, imaging, IV meds, specialty consult). Stable vitals. Target: seen within 30 minutes.",
-          4: "Less urgent — requires one resource. Examples: simple laceration, prescription refill with mild symptoms. Target: seen within 60 minutes.",
-          5: "Non-urgent — requires no resources. Examples: medication refill, minor complaint. Target: seen within 120 minutes.",
+          1: "Immediate life-saving intervention needed. Examples: cardiac arrest, intubation needed, major trauma. Requires immediate physician assessment.",
+          2: "High risk situation, confused/lethargic/disoriented, or severe pain/distress. Examples: chest pain with cardiac history, stroke symptoms, acute abdomen. Should be seen rapidly, but no mandated time target exists in the ESI algorithm.",
+          3: "Needs two or more resources (labs, imaging, IV meds, specialty consult) but stable vitals. ESI predicts resource utilization, not urgency of physician evaluation.",
+          4: "Needs one resource. Examples: simple laceration, prescription refill with mild symptoms.",
+          5: "Needs zero resources. Examples: medication refill, minor complaint.",
         },
       },
       nursingNotes: {
@@ -70,13 +75,17 @@ export const CHART_ANATOMY = {
           "Pain reassessment not documented after analgesic administration",
           "Fall risk identified but no fall precautions implemented",
         ],
+        // SOURCE: facility-dependent | JURISDICTION: universal (varies by facility) | LAST VERIFIED: 2026-04
+        // NOTE: Specific intervals are facility-dependent. Review the hospital's own nursing
+        // policies, as deviation from INTERNAL policy is often more damaging in litigation
+        // than deviation from general guidelines. The intervals below are common but NOT universal.
         nursingStandards: [
-          "Vital signs at minimum q4h for admitted patients, more frequently for higher acuity",
-          "Reassessment within 30 minutes of any intervention (pain medication, fluid bolus, etc.)",
+          "Vital signs at minimum q4h for admitted patients, more frequently for higher acuity (frequency is facility-specific — check hospital policy)",
+          "Reassessment within 30 minutes of any intervention such as pain medication or fluid bolus (interval is facility-specific — check hospital policy)",
           "Documentation of physician notification for any change in condition",
           "Chain of command escalation when concerns are not addressed by primary physician",
           "Two-patient-identifier verification before medication administration",
-          "Skin and fall risk assessment on admission and per protocol",
+          "Skin and fall risk assessment on admission and per protocol (protocol intervals vary by facility)",
           "Intake and output documentation for patients on fluid management",
         ],
       },
@@ -90,7 +99,7 @@ export const CHART_ANATOMY = {
           reEvaluation: "Documentation of clinical reassessment after treatment. Did the patient improve? Were vitals rechecked? Was the diagnosis reconsidered in light of test results or clinical trajectory? Absence of re-evaluation documentation before disposition is a major gap.",
         },
         legalSignificance:
-          "This is the physician's legal defense document. Every word matters. What ISN'T documented is assumed not to have happened. The physician note is usually written from memory, sometimes hours after the encounter, and may be completed at shift change. Timestamp of note completion vs. time of actual encounter is always scrutinized.",
+          "This is the physician's legal defense document. Every word matters. In litigation, undocumented actions are difficult to prove occurred. While physicians can testify about their standard practice, documentation provides contemporaneous evidence that is far more persuasive to juries than after-the-fact testimony. The physician note is usually written from memory, sometimes hours after the encounter, and may be completed at shift change. Timestamp of note completion vs. time of actual encounter is always scrutinized.",
         templatePitfalls: [
           "All-normal physical exam in a critically ill patient (template not customized)",
           "ROS showing 14 systems reviewed in a patient who presented obtunded",
@@ -252,6 +261,7 @@ export const CHART_ANATOMY = {
     },
   },
 
+  // SOURCE: guideline + facility-dependent | JURISDICTION: universal | LAST VERIFIED: 2026-04
   surgicalChart: {
     components: {
       preOpAssessment: {
@@ -365,6 +375,7 @@ export const CHART_ANATOMY = {
     },
   },
 
+  // SOURCE: guideline + facility-dependent | JURISDICTION: universal | LAST VERIFIED: 2026-04
   inpatientChart: {
     components: {
       admissionNote: {
@@ -412,6 +423,7 @@ export const CHART_ANATOMY = {
 // ── SECTION 2: PROSECUTION AND DEFENSE PLAYBOOKS ──
 // Strategic knowledge for both sides of medical malpractice litigation.
 
+// SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
 export const PROSECUTION_PLAYBOOK = {
   caseScreening: {
     initialAssessment: [
@@ -742,6 +754,7 @@ export const PROSECUTION_PLAYBOOK = {
   },
 } as const;
 
+// SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
 export const DEFENSE_PLAYBOOK = {
   strategies: {
     standardOfCareCompliance: {
@@ -889,6 +902,7 @@ export const DEFENSE_PLAYBOOK = {
 // ── SECTION 3: CLINICIAN REAL-TIME REVIEW ──
 // Tools for physicians reviewing their own documentation and managing risk.
 
+// SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
 export const CLINICIAN_REALTIME = {
   shiftReviewChecklist: {
     perEncounter: [
@@ -1115,6 +1129,7 @@ export const CLINICIAN_REALTIME = {
 // ── SECTION 4: HIGH-VALUE LITIGATION PATTERNS ──
 // Recurring patterns in successful medical malpractice litigation.
 
+// SOURCE: expert-heuristic | JURISDICTION: universal (jurisdiction-specific data noted inline) | LAST VERIFIED: 2026-04
 export const LITIGATION_PATTERNS = {
   highValueCasePatterns: [
     {
@@ -1228,6 +1243,7 @@ export const LITIGATION_PATTERNS = {
 // ── SECTION 5: MEDICAL-LEGAL KEYWORD DETECTION ──
 // Extended keyword map for detecting medical-legal contexts beyond clinical categories.
 
+// SOURCE: expert-heuristic | JURISDICTION: universal | LAST VERIFIED: 2026-04
 export const MEDLEGAL_KEYWORD_MAP = {
   chartIntegrity: [
     "amendment", "addendum", "late entry", "correction", "modified",
