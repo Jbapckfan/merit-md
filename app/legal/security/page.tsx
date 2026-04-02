@@ -6,16 +6,16 @@ export default function SecurityPage() {
     <>
       <Header />
       <main className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-3xl font-bold text-[#e5e2ff] mb-8">Security &amp; HIPAA Compliance</h1>
+        <h1 className="text-3xl font-bold text-[#e5e2ff] mb-8">Security &amp; Data Protection</h1>
 
         <div className="prose prose-invert space-y-6 text-[#9490b0] text-sm leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-[#e5e2ff] mb-3">HIPAA Compliance</h2>
+            <h2 className="text-lg font-semibold text-[#e5e2ff] mb-3">Data Protection</h2>
             <p>
-              MedMal Review is designed to comply with the Health Insurance Portability and
-              Accountability Act (HIPAA). We implement administrative, physical, and technical
-              safeguards to protect the confidentiality, integrity, and availability of
-              protected health information (PHI).
+              We implement security controls aligned with healthcare data protection standards.
+              We do not store, share, or sell your information. Administrative, physical, and
+              technical safeguards are in place to protect the confidentiality, integrity, and
+              availability of any data you provide.
             </p>
           </section>
 
@@ -29,10 +29,10 @@ export default function SecurityPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-[#e5e2ff] mb-3">Business Associate Agreements</h2>
+            <h2 className="text-lg font-semibold text-[#e5e2ff] mb-3">Agreements</h2>
             <p>
-              We execute Business Associate Agreements (BAAs) with all covered entity clients.
-              If your organization requires a BAA, contact us to initiate the process.
+              For enterprise and institutional clients, we can execute data processing agreements
+              tailored to your organization&apos;s requirements. Contact us to discuss your needs.
             </p>
           </section>
 
@@ -50,7 +50,7 @@ export default function SecurityPage() {
             <p>
               We maintain a documented incident response plan. In the unlikely event of a
               data breach, affected parties will be notified within the timeframes required
-              by HIPAA and applicable state laws.
+              by applicable laws and regulations.
             </p>
           </section>
 

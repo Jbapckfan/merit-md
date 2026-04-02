@@ -49,8 +49,8 @@ For each potential issue found, provide:
 5. What SHOULD have been done
 
 Then provide an overall assessment:
-- Negligence Probability Score (1-10, where 10 = clear negligence)
-- Summary of strongest claims
+- Issue Density Rating (1-10, where 10 = highest density of identified issues across severity levels)
+- Summary of most significant identified issues
 - Weaknesses in the case
 - Recommended next steps for the attorney
 

@@ -71,53 +71,53 @@ const audienceCards = [
     icon: UserIcon,
     iconColor: "text-[#22c55e]",
     iconBg: "bg-[#22c55e]/10 border-[#22c55e]/20",
-    title: "Individual Physicians",
-    description: "Protect yourself. Catch documentation gaps before they become your legal record. Every chart you sign is a potential exhibit.",
+    title: "Emergency Physicians",
+    description: "Review your documentation before you sign. Surfaces completeness considerations, identifies potentially relevant guidelines, and highlights language that may carry medicolegal weight.",
   },
   {
     icon: BuildingIcon,
     iconColor: "text-[#4f8ff7]",
     iconBg: "bg-[#4f8ff7]/10 border-[#4f8ff7]/20",
-    title: "Hospital & Clinic Administrators",
-    description: "Protect your organization. Reduce malpractice claims and improve documentation quality across your entire physician group.",
+    title: "Hospitalists & Specialists",
+    description: "Retrospective documentation review for any clinical note. Identify areas where additional documentation may strengthen your chart before finalizing.",
   },
   {
     icon: AcademicIcon,
     iconColor: "text-[#4f8ff7]",
     iconBg: "bg-[#4f8ff7]/10 border-[#4f8ff7]/20",
-    title: "Residency Programs",
-    description: "Teach documentation excellence. Give residents real-time feedback on every chart so they build good habits from day one.",
+    title: "Group Practices",
+    description: "Team-wide documentation review with shared analytics. Track documentation quality trends across your group and identify common improvement areas.",
   },
 ];
 
 const features = [
   {
     title: "Documentation Completeness",
-    description: "MDM strength, pertinent negatives, ROS consistency, exam completeness",
+    description: "Surfaces documentation considerations: MDM strength, pertinent negatives, ROS consistency, exam completeness",
   },
   {
-    title: "Standard-of-Care Alignment",
-    description: "Are you meeting guidelines for this chief complaint? Risk scores, workup gaps",
+    title: "Guideline Alignment",
+    description: "Identifies potentially relevant guidelines for the chief complaint. Risk scores, workup considerations",
   },
   {
-    title: "Disposition Safety",
-    description: "Is this patient safe to discharge? What are you missing before you let them go?",
+    title: "Disposition Documentation",
+    description: "Reviews discharge documentation for completeness. Surfaces considerations you may want to address before signing",
   },
   {
-    title: "Medicolegal Risk Flags",
-    description: "Phrases that hurt you in court, missing defensive documentation, time gaps",
+    title: "Medicolegal Language Review",
+    description: "Highlights language patterns that may carry weight in litigation. Suggests protective phrasing alternatives",
   },
   {
     title: "Return Precaution Quality",
-    description: "Specific enough to be legally defensible? Would a jury understand you warned them?",
+    description: "Reviews specificity of return instructions. Surfaces areas where additional detail may strengthen documentation",
   },
   {
-    title: "Cognitive Bias Detection",
-    description: "Anchoring, premature closure, availability bias, diagnosis momentum",
+    title: "Cognitive Bias Awareness",
+    description: "Identifies documentation patterns that may suggest anchoring, premature closure, or diagnosis momentum",
   },
   {
     title: "Billing/Coding Alignment",
-    description: "Does your MDM support the level you are billing? Avoid underbilling and audit risk",
+    description: "Reviews whether documentation supports the complexity level. Surfaces potential underbilling or audit considerations",
   },
 ];
 
@@ -125,92 +125,82 @@ const steps = [
   {
     number: "1",
     title: "Paste Your Chart Note",
-    description: "Copy your note from the EHR, or upload a PDF/text export. Takes 5 seconds.",
+    description: "Copy your note from the EHR (de-identified). Takes 5 seconds.",
   },
   {
     number: "2",
-    title: "AI Reviews Your Chart",
-    description: "Your note is analyzed against clinical standards, documentation best practices, and medicolegal risk patterns by a panel of AI experts.",
+    title: "AI Reviews Your Documentation",
+    description: "Your note is reviewed for documentation completeness, guideline alignment, and language considerations across 7 categories.",
   },
   {
     number: "3",
-    title: "Fix Before You Sign",
-    description: "Get actionable feedback in 30 seconds. Copy suggested text directly into your EHR. Sign with confidence.",
+    title: "Review Suggestions Before You Sign",
+    description: "Get documentation considerations in 30 seconds. Copy suggested additions directly into your EHR. Review and apply at your discretion.",
   },
 ];
 
 const pricingTiers = [
   {
-    name: "Individual",
-    price: "$99",
-    period: "/physician/mo",
-    description: "Unlimited reviews for a single physician",
+    name: "Free",
+    price: "$0",
+    period: "",
+    description: "Try it out — no signup required",
+    trialLabel: "",
+    features: [
+      "2 chart reviews per month",
+      "All 7 review categories",
+      "Copy-to-clipboard suggestions",
+      "No account needed",
+    ],
+    highlight: false,
+    ctaLabel: "Start Reviewing",
+    ctaHref: "/chartreview/review",
+  },
+  {
+    name: "Pro",
+    price: "$149",
+    period: "/month",
+    description: "For individual physicians",
     trialLabel: "14-day free trial",
     features: [
       "Unlimited chart reviews",
-      "Shift-end summary",
       "Documentation score tracking",
+      "Shift-end summaries",
+      "Export to PDF",
       "All 7 review categories",
-      "Copy-to-clipboard suggestions",
     ],
-    highlight: false,
+    highlight: true,
+    ctaLabel: "Start 14-Day Free Trial",
+    ctaHref: "/chartreview/review",
   },
   {
-    name: "Group Practice",
-    price: "$79",
+    name: "Group",
+    price: "$99",
     period: "/physician/mo",
-    description: "5-20 physicians",
+    description: "5+ physicians",
     trialLabel: "14-day free trial",
     features: [
-      "Everything in Individual",
-      "Group analytics dashboard",
+      "Everything in Pro",
+      "Team analytics dashboard",
       "Physician comparison metrics",
       "Admin reporting tools",
       "Priority support",
     ],
-    highlight: true,
-  },
-  {
-    name: "Hospital / Health System",
-    price: "$59",
-    period: "/physician/mo",
-    description: "20+ physicians",
-    trialLabel: "14-day free trial",
-    features: [
-      "Everything in Group",
-      "EHR integration support",
-      "Custom risk policies",
-      "Compliance reporting",
-      "Dedicated account manager",
-    ],
     highlight: false,
-  },
-  {
-    name: "Residency Program",
-    price: "$39",
-    period: "/resident/mo",
-    description: "Educational pricing",
-    trialLabel: "14-day free trial",
-    features: [
-      "Everything in Individual",
-      "Teaching mode with explanations",
-      "Faculty review dashboard",
-      "Progress tracking per resident",
-      "Bulk onboarding",
-    ],
-    highlight: false,
+    ctaLabel: "Start 14-Day Free Trial",
+    ctaHref: "/chartreview/review",
   },
 ];
 
 const testimonials = [
   {
-    quote: "I caught a missing troponin follow-up plan on a chest pain discharge. That would have been a lawsuit waiting to happen.",
-    author: "Dr. M., Emergency Physician, Texas",
+    quote: "It surfaced a documentation gap in my troponin follow-up plan that I would have missed at 3 AM. Having a second set of eyes before I sign is invaluable.",
+    author: "Emergency Physician, Texas",
     role: "Level 1 Trauma Center",
   },
   {
-    quote: "Our group's documentation scores improved 40% in the first month. Risk management noticed before we even told them.",
-    author: "Dr. R., Medical Director, Ohio",
+    quote: "Our group started using it for pre-sign reviews. The documentation quality conversations have improved across the board.",
+    author: "Medical Director, Ohio",
     role: "Community ED, 12 physicians",
   },
 ];
@@ -264,8 +254,9 @@ export default function ChartReviewLanding() {
               </span>
             </h1>
             <p className="text-[#9490b0] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10">
-              Like having risk management, a hospital attorney, and a med-mal defense team
-              reviewing every chart — before it becomes your legal record.
+              AI-powered retrospective documentation review that surfaces considerations,
+              identifies potentially relevant guidelines, and suggests language improvements
+              — before you finalize your chart.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -273,15 +264,18 @@ export default function ChartReviewLanding() {
                 href="/chartreview/review"
                 className="bg-[#22c55e] hover:bg-[#16a34a] text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg shadow-[#22c55e]/20 hover:shadow-[#22c55e]/40"
               >
-                Start Reviewing Charts
+                Try It Free — No Signup
               </Link>
-              <a
-                href="#pricing"
+              <Link
+                href="/chartreview/demo"
                 className="border border-[#2a2440] hover:border-[#22c55e]/50 text-[#e5e2ff] hover:bg-[#22c55e]/10 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
               >
-                View Pricing
-              </a>
+                See a Sample Review
+              </Link>
             </div>
+            <p className="text-[#9490b0] text-sm mt-4">
+              2 free reviews per month. No account required.
+            </p>
           </motion.div>
         </section>
 
@@ -292,7 +286,7 @@ export default function ChartReviewLanding() {
               Who It&apos;s For
             </h2>
             <p className="text-[#9490b0] text-center mb-12 max-w-2xl mx-auto">
-              Whether you are protecting yourself, your team, or your trainees — ChartReview Pro catches what you miss at 3 AM.
+              For licensed healthcare professionals looking to strengthen their documentation before signing.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -391,11 +385,14 @@ export default function ChartReviewLanding() {
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               Pricing
             </h2>
-            <p className="text-[#9490b0] text-center mb-12 max-w-2xl mx-auto">
-              All plans include unlimited chart reviews, shift-end summaries, and documentation score tracking.
+            <p className="text-[#9490b0] text-center mb-4 max-w-2xl mx-auto">
+              Start free. Upgrade when you are ready for unlimited reviews.
+            </p>
+            <p className="text-[#22c55e] text-sm text-center mb-12">
+              14-day free trial on all paid plans. Cancel anytime.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {pricingTiers.map((tier, i) => (
                 <motion.div
                   key={tier.name}
@@ -434,14 +431,14 @@ export default function ChartReviewLanding() {
                     ))}
                   </ul>
                   <Link
-                    href="/chartreview/review"
+                    href={tier.ctaHref}
                     className={`block text-center px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                       tier.highlight
                         ? "bg-[#22c55e] hover:bg-[#16a34a] text-white shadow-lg shadow-[#22c55e]/20"
                         : "border border-[#2a2440] hover:border-[#22c55e]/50 text-[#e5e2ff] hover:bg-[#22c55e]/10"
                     }`}
                   >
-                    Start 14-Day Free Trial
+                    {tier.ctaLabel}
                   </Link>
                 </motion.div>
               ))}
@@ -482,7 +479,7 @@ export default function ChartReviewLanding() {
                   </svg>
                 </div>
                 <p className="text-[#e5e2ff] text-sm leading-relaxed">
-                  Reduces malpractice exposure by catching documentation gaps before they become legal records.
+                  Surfaces documentation considerations before you finalize your chart. Does not replace clinical judgment.
                 </p>
               </div>
             </div>
@@ -515,18 +512,49 @@ export default function ChartReviewLanding() {
         <section className="px-6 py-20 bg-[#15111e]/30">
           <AnimatedSection className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Stop Signing Blind
+              Review Before You Sign
             </h2>
             <p className="text-[#9490b0] text-lg mb-8 max-w-xl mx-auto">
-              Every chart you sign without review is a risk you are choosing to take. Start reviewing in 30 seconds.
+              Paste your chart note and get a comprehensive documentation review in 30 seconds. Free to try, no account required.
             </p>
             <Link
               href="/chartreview/review"
               className="inline-block bg-[#22c55e] hover:bg-[#16a34a] text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg shadow-[#22c55e]/20 hover:shadow-[#22c55e]/40"
             >
-              Review Your First Chart Free
+              Try Your First Review Free
             </Link>
           </AnimatedSection>
+        </section>
+
+        {/* ══════════════════ DISCLAIMER ══════════════════ */}
+        <section className="px-6 py-12 border-t border-[#2a2440]">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-[#15111e]/60 border border-[#2a2440] rounded-2xl p-6 space-y-3">
+              <h3 className="text-[#e5e2ff] font-semibold text-sm">Important Disclaimers</h3>
+              <ul className="space-y-2 text-[#9490b0] text-xs leading-relaxed">
+                <li>
+                  <span className="text-[#e5e2ff] font-medium">For licensed healthcare professionals only.</span>{" "}
+                  ChartReview Pro is intended for use by licensed physicians, nurse practitioners, and physician assistants as a retrospective documentation review tool.
+                </li>
+                <li>
+                  <span className="text-[#e5e2ff] font-medium">Retrospective documentation review only.</span>{" "}
+                  This tool is designed for pre-sign chart review. It is not intended for emergency, time-critical, or point-of-care clinical decision-making.
+                </li>
+                <li>
+                  <span className="text-[#e5e2ff] font-medium">Does not replace clinical judgment.</span>{" "}
+                  All suggestions are informational. Clinical decisions remain the sole responsibility of the treating provider. This tool does not provide medical advice, diagnosis, or treatment recommendations.
+                </li>
+                <li>
+                  <span className="text-[#e5e2ff] font-medium">Not a legal service.</span>{" "}
+                  ChartReview Pro does not provide legal advice. Medicolegal language suggestions are educational in nature and should not be construed as legal counsel.
+                </li>
+                <li>
+                  <span className="text-[#e5e2ff] font-medium">Privacy.</span>{" "}
+                  Chart data is processed in real-time and is not stored beyond your session. We do not use your data for model training. De-identify all notes before submitting.
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
       </main>
 

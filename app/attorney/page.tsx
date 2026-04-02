@@ -74,15 +74,15 @@ const findings = [
 const useCases = {
   plaintiff: {
     title: "Plaintiff Firms",
-    headline: "Screen cases faster. Win the right ones.",
+    headline: "Review records faster. Focus on the right cases.",
     description:
-      "Stop burning retainer hours on cases that lack clinical merit. MedMal Review Pro gives you an ER-grade assessment within minutes so you can focus resources on cases with the highest probability of success.",
+      "Stop burning retainer hours on initial record review. MedMal Review Pro gives you an ER-grade issue-spotting analysis within minutes so you can focus resources on cases that warrant deeper investigation.",
     features: [
-      "Instant negligence probability scoring",
+      "Issue density rating by severity",
       "Standard-of-care deviation mapping",
       "Evidence-grade clinical citations",
       "Expert witness preparation summaries",
-      "Case strength ranking across your portfolio",
+      "Issue tracking across your portfolio",
     ],
   },
   defense: {
@@ -115,8 +115,8 @@ const useCases = {
 
 const faqs = [
   {
-    q: "Is this HIPAA compliant?",
-    a: "Yes. MedMal Review Pro is fully HIPAA compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We process records on secure, isolated infrastructure and never share patient data. We execute Business Associate Agreements (BAAs) with all clients.",
+    q: "How do you protect my data?",
+    a: "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We implement security controls aligned with healthcare data protection standards. Records are processed on secure, isolated infrastructure. We do not store, share, or sell patient data.",
   },
   {
     q: "How accurate is the AI analysis?",
@@ -145,12 +145,12 @@ const pricingTiers = [
     name: "Quick Screen",
     price: "$149",
     unit: "/case",
-    description: "Fast AI triage for case viability",
+    description: "Fast AI triage for preliminary review",
     features: [
-      "AI-powered merit screening",
-      "Negligence probability score",
+      "AI-powered record review",
+      "Issue density rating by severity",
       "Top 3 findings summary",
-      "Go/no-go recommendation",
+      "Preliminary assessment",
     ],
     cta: "Start Screening",
     href: "/signup",
@@ -164,7 +164,7 @@ const pricingTiers = [
     description: "Comprehensive clinical deep-dive",
     features: [
       "Everything in Quick Screen",
-      "Full structured merit report",
+      "Full structured analysis report",
       "All deviations with citations",
       "Evidence grading per finding",
       "Shareable report link",
@@ -512,8 +512,8 @@ export default function AttorneyLandingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
               >
-                Two tools, one platform. Quick-screen prospective cases for merit,
-                or run a comprehensive medical-legal deep dive on active cases.
+                Two tools, one platform. Preliminary record review for prospective cases,
+                or a comprehensive medical-legal deep dive on active cases.
               </motion.p>
 
               {/* Two use-case cards inline */}
@@ -524,9 +524,9 @@ export default function AttorneyLandingPage() {
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
                 <div className="bg-[#15111e]/60 backdrop-blur-xl border border-[#2a2440] rounded-xl p-5 text-left">
-                  <div className="text-[#4f8ff7] text-xs font-bold uppercase tracking-wider mb-2">Case Screening</div>
+                  <div className="text-[#4f8ff7] text-xs font-bold uppercase tracking-wider mb-2">Preliminary Record Review</div>
                   <p className="text-[#9490b0] text-sm leading-relaxed">
-                    Is this case worth your time? Get an AI merit assessment with negligence scoring in minutes.
+                    Does this case warrant further investigation? Get an AI issue-spotting analysis in minutes.
                   </p>
                 </div>
                 <div className="bg-[#15111e]/60 backdrop-blur-xl border border-[#4f8ff7]/30 rounded-xl p-5 text-left">
@@ -568,7 +568,7 @@ export default function AttorneyLandingPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.5 }}
               >
-                First case screening is free. No credit card required.
+                First record review is free. No credit card required.
               </motion.p>
 
               {/* Trust bar */}
@@ -578,7 +578,7 @@ export default function AttorneyLandingPage() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
               >
-                {["HIPAA Compliant", "Built by ER Physicians", "Results in Minutes"].map(
+                {["Secure Processing", "Built by ER Physicians", "Results in Minutes"].map(
                   (item) => (
                     <div key={item} className="flex items-center gap-2">
                       <svg className="w-4 h-4 text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
@@ -632,7 +632,7 @@ export default function AttorneyLandingPage() {
           <div className="max-w-7xl mx-auto px-6">
             <AnimatedSection className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Three Steps to a Merit Decision
+                Three Steps to Actionable Intelligence
               </h2>
               <p className="text-[#9490b0] text-lg max-w-xl mx-auto">
                 From upload to actionable intelligence in minutes, not weeks.
@@ -678,8 +678,8 @@ export default function AttorneyLandingPage() {
                   },
                   {
                     step: 3,
-                    title: "Get Your Merit Report",
-                    desc: "Receive a structured report with a negligence probability score, key findings, evidence citations, and recommended next steps for your case.",
+                    title: "Get Your Analysis Report",
+                    desc: "Receive a structured report with an issue density rating, key findings, evidence citations, and recommended next steps for your case.",
                     icon: (
                       <path
                         strokeLinecap="round"
@@ -960,7 +960,7 @@ export default function AttorneyLandingPage() {
             </AnimatedSection>
 
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              {/* HIPAA */}
+              {/* Security */}
               <AnimatedSection delay={0}>
                 <div className="bg-[#15111e]/80 backdrop-blur-xl border border-[#2a2440] rounded-2xl p-8 text-center h-full hover:border-[#3d3660] transition-all duration-300">
                   <div className="w-14 h-14 rounded-2xl bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mx-auto mb-5">
@@ -973,11 +973,11 @@ export default function AttorneyLandingPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-[#e5e2ff] font-semibold text-lg mb-2">HIPAA Compliant</h3>
+                  <h3 className="text-[#e5e2ff] font-semibold text-lg mb-2">Private Analysis</h3>
                   <p className="text-[#9490b0] text-sm leading-relaxed">
-                    AES-256 encryption at rest, TLS 1.3 in transit. Full audit
-                    trails and BAA agreements. Your data never leaves our secure
-                    infrastructure.
+                    AES-256 encryption at rest, TLS 1.3 in transit. We do not store,
+                    share, or sell your data. Security controls aligned with
+                    healthcare data protection standards.
                   </p>
                 </div>
               </AnimatedSection>

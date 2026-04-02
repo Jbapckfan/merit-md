@@ -20,7 +20,7 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
     brandName = "MedMal Review Pro";
     brandHref = "/attorney";
   } else if (isPatientSection) {
-    brandName = "MedMal Review for Patients";
+    brandName = "MedMal Review";
     brandHref = "/patient";
   } else if (isClinicianSection) {
     brandName = "ChartReview Pro \u2014 Free Tools";
@@ -33,8 +33,8 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
   }
 
   // Determine which anchor links to show (section-specific pages)
-  const showSectionAnchors = isAttorneySection || isPatientSection || isChartReviewSection;
-  const anchorPrefix = isAttorneySection ? "/attorney" : isPatientSection ? "/patient" : isChartReviewSection ? "/chartreview" : "";
+  const showSectionAnchors = isAttorneySection || isChartReviewSection;
+  const anchorPrefix = isAttorneySection ? "/attorney" : isChartReviewSection ? "/chartreview" : "";
 
   return (
     <header className="border-b border-merit-border bg-merit-bg/80 backdrop-blur-md sticky top-0 z-50">

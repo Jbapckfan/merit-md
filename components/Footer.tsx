@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/legal/security" className="text-merit-text-muted hover:text-merit-text text-sm transition">
-                  HIPAA Compliance
+                  Security &amp; Privacy
                 </Link>
               </li>
               <li>
@@ -78,7 +78,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-merit-border mt-10 pt-6 text-center">
+        <div className="border-t border-merit-border mt-10 pt-6 text-center space-y-3">
+          <p className="text-merit-text-muted/60 text-xs max-w-2xl mx-auto leading-relaxed">
+            MedMal Review provides information for attorney and physician use. It does not provide legal advice, medical advice, or expert opinions. Not a substitute for qualified professional review.
+          </p>
           <p className="text-merit-text-muted text-xs">
             &copy; 2026 MedMal Review. Built by physicians, for everyone.
           </p>

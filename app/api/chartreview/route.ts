@@ -1,6 +1,6 @@
 // ── ChartReview Pro API ──
 // POST /api/chartreview — submit a chart for pre-sign review
-// Returns structured JSON with documentation review, risk flags, and suggestions.
+// Returns structured JSON with documentation review, observations, and suggestions.
 
 import { NextRequest, NextResponse } from "next/server";
 import { reviewChart } from "@/lib/chart-review";

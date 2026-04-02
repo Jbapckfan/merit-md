@@ -103,7 +103,7 @@ export default function DashboardPage() {
               </div>
               <h2 className="text-lg font-semibold mb-2 text-merit-text">No cases yet</h2>
               <p className="text-merit-text-muted mb-6 max-w-sm mx-auto">
-                Upload medical records to get your first AI-powered merit analysis.
+                Upload medical records to get your first AI-powered record review.
               </p>
               <Link
                 href="/dashboard/new"

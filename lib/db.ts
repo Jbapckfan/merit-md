@@ -65,21 +65,21 @@ function initSchema(db: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_uploads_case ON uploads(case_id);
     CREATE INDEX IF NOT EXISTS idx_case_messages_case ON case_messages(case_id);
 
-    CREATE TABLE IF NOT EXISTS patient_cases (
+    CREATE TABLE IF NOT EXISTS intake_submissions (
       id TEXT PRIMARY KEY,
+      first_name TEXT NOT NULL,
       email TEXT NOT NULL,
-      description TEXT NOT NULL,
+      phone TEXT,
+      state TEXT NOT NULL,
       incident_date TEXT,
-      facility TEXT,
-      outcome_type TEXT,
-      tier TEXT NOT NULL DEFAULT 'quick',
-      status TEXT NOT NULL DEFAULT 'processing',
-      analysis TEXT,
-      score INTEGER,
-      created_at TEXT NOT NULL DEFAULT (datetime('now'))
+      concern_type TEXT NOT NULL,
+      description TEXT NOT NULL,
+      submitted_at TEXT NOT NULL DEFAULT (datetime('now')),
+      status TEXT NOT NULL DEFAULT 'new' CHECK(status IN ('new', 'contacted', 'closed'))
     );
 
-    CREATE INDEX IF NOT EXISTS idx_patient_cases_email ON patient_cases(email);
+    CREATE INDEX IF NOT EXISTS idx_intake_submissions_email ON intake_submissions(email);
+    CREATE INDEX IF NOT EXISTS idx_intake_submissions_status ON intake_submissions(status);
 
     CREATE TABLE IF NOT EXISTS chart_reviews (
       id TEXT PRIMARY KEY,
@@ -243,49 +243,44 @@ export function getMessagesByCase(caseId: string): CaseMessage[] {
     .all(caseId) as CaseMessage[];
 }
 
-// ── Patient case operations ──
+// ── Intake submission operations ──
 
-export interface PatientCase {
+export interface IntakeSubmission {
   id: string;
+  first_name: string;
   email: string;
-  description: string;
+  phone: string | null;
+  state: string;
   incident_date: string | null;
-  facility: string | null;
-  outcome_type: string | null;
-  tier: string;
-  status: string;
-  analysis: string | null;
-  score: number | null;
-  created_at: string;
+  concern_type: string;
+  description: string;
+  submitted_at: string;
+  status: "new" | "contacted" | "closed";
 }
 
-export function createPatientCase(
+export function createIntakeSubmission(
   id: string,
+  firstName: string,
   email: string,
-  description: string,
-  incidentDate?: string,
-  facility?: string,
-  outcomeType?: string,
-  tier?: string
-): PatientCase {
+  phone: string | null,
+  state: string,
+  incidentDate: string | null,
+  concernType: string,
+  description: string
+): IntakeSubmission {
   const db = getDb();
   db.prepare(
-    "INSERT INTO patient_cases (id, email, description, incident_date, facility, outcome_type, tier) VALUES (?, ?, ?, ?, ?, ?, ?)"
-  ).run(id, email, description, incidentDate || null, facility || null, outcomeType || null, tier || "quick");
-  return db.prepare("SELECT * FROM patient_cases WHERE id = ?").get(id) as PatientCase;
+    "INSERT INTO intake_submissions (id, first_name, email, phone, state, incident_date, concern_type, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+  ).run(id, firstName, email, phone, state, incidentDate, concernType, description);
+  return db.prepare("SELECT * FROM intake_submissions WHERE id = ?").get(id) as IntakeSubmission;
 }
 
-export function getPatientCaseById(id: string): PatientCase | undefined {
-  return getDb().prepare("SELECT * FROM patient_cases WHERE id = ?").get(id) as PatientCase | undefined;
+export function getIntakeSubmissionById(id: string): IntakeSubmission | undefined {
+  return getDb().prepare("SELECT * FROM intake_submissions WHERE id = ?").get(id) as IntakeSubmission | undefined;
 }
 
-export function updatePatientCaseReport(
-  id: string,
-  status: string,
-  score: number | null,
-  analysis: string | null
-) {
+export function updateIntakeSubmissionStatus(id: string, status: "new" | "contacted" | "closed") {
   getDb()
-    .prepare("UPDATE patient_cases SET status = ?, score = ?, analysis = ? WHERE id = ?")
-    .run(status, score, analysis, id);
+    .prepare("UPDATE intake_submissions SET status = ? WHERE id = ?")
+    .run(status, id);
 }

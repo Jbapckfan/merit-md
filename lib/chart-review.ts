@@ -86,10 +86,10 @@ Your review should cover:
 - Are there any high-risk features being discharged?
 - Would a peer reviewer question this disposition?
 
-4. MEDICOLEGAL RISK FLAGS
-- Identify phrases that hurt in court (e.g., "patient is a poor historian", "normal exam" without specifics)
+4. MEDICOLEGAL DOCUMENTATION OBSERVATIONS
+- Identify phrases that may carry weight in litigation (e.g., "patient is a poor historian", "normal exam" without specifics)
 - Missing defensive documentation
-- Time gaps that create vulnerability
+- Time gaps that may warrant attention
 - Copy-forward errors or templated language that doesn't match the encounter
 
 5. RETURN PRECAUTION QUALITY

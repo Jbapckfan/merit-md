@@ -64,13 +64,13 @@ const cards = [
     iconColor: "text-[#d97706]",
     iconBg: "bg-[#d97706]/10 border-[#d97706]/20",
     glowColor: "rgba(217, 119, 6, 0.15)",
-    headline: "Review Your Care",
+    headline: "Get Connected with a Malpractice Attorney",
     description:
-      "Upload your medical records and find out in minutes if you received appropriate care. Plain-language answers, no legal jargon.",
-    priceTag: "Starting at $49",
-    buttonText: "Check My Case",
+      "Concerned about your medical care? We connect you with a vetted malpractice attorney in your area -- completely free.",
+    priceTag: "Free",
+    buttonText: "Request Attorney Review",
     href: "/patient",
-    brand: "MedMal Review for Patients",
+    brand: "Free Attorney Matching",
     subOptions: null,
   },
   {
@@ -78,7 +78,7 @@ const cards = [
     iconColor: "text-[#4f8ff7]",
     iconBg: "bg-[#4f8ff7]/10 border-[#4f8ff7]/20",
     glowColor: "rgba(79, 143, 247, 0.15)",
-    headline: "Screen & Analyze Cases",
+    headline: "Review Medical Records",
     description: null,
     priceTag: "From $149/scan",
     buttonText: "Start Analysis",
@@ -86,8 +86,8 @@ const cards = [
     brand: "MedMal Review Pro",
     subOptions: [
       {
-        title: "Case Screening",
-        desc: "Quickly assess if a prospective case has merit before investing time and money. AI-powered standard-of-care deviation analysis.",
+        title: "Preliminary Record Review",
+        desc: "Identify potential standard-of-care deviations before investing time and money. AI-powered issue-spotting analysis.",
       },
       {
         title: "Deep Dive Analysis",
@@ -116,7 +116,7 @@ const cards = [
     glowColor: "rgba(34, 197, 94, 0.15)",
     headline: "Review Before You Sign",
     description:
-      "AI-powered pre-sign chart review. Catch documentation gaps, risk flags, and standard-of-care issues before your note becomes a legal record.",
+      "AI-powered pre-sign chart review. Surfaces potentially relevant documentation considerations and observations before your note becomes a legal record.",
     priceTag: "From $59/physician/month",
     buttonText: "Start Reviewing",
     href: "/chartreview",
@@ -126,7 +126,7 @@ const cards = [
 ];
 
 const trustBadges = [
-  "HIPAA Compliant",
+  "Private Analysis",
   "Built by ER Physicians",
   "Board-Certified Review Available",
 ];

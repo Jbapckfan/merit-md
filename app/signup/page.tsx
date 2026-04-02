@@ -148,7 +148,7 @@ export default function SignupPage() {
 
           <p className="text-center text-merit-text-muted/60 text-xs mt-6 max-w-sm mx-auto">
             By creating an account, you agree to our Terms of Service and Privacy
-            Policy. All data is handled in accordance with HIPAA requirements.
+            Policy. Your data is processed securely and never stored, shared, or sold.
           </p>
         </motion.div>
       </main>

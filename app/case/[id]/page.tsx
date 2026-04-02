@@ -161,12 +161,12 @@ export default function CaseReportPage() {
                   Dashboard
                 </button>
                 <span className="text-merit-text-muted/40">/</span>
-                <span className="text-merit-text text-sm">Merit Report</span>
+                <span className="text-merit-text text-sm">Analysis Report</span>
               </div>
               <h1 className="text-2xl font-bold mb-2">
                 {caseData.client_name
-                  ? `${caseData.client_name} — Merit Report`
-                  : "Merit Report"}
+                  ? `${caseData.client_name} — Analysis Report`
+                  : "Analysis Report"}
               </h1>
               <div className="flex items-center gap-4 text-sm text-merit-text-muted">
                 <span>Submitted {new Date(caseData.created_at).toLocaleDateString()}</span>
@@ -183,8 +183,17 @@ export default function CaseReportPage() {
 
             <div className="flex flex-col items-center gap-3">
               {report && <ScoreBadge score={report.score} size="lg" />}
-              <span className="text-merit-text-muted text-xs">Negligence Probability</span>
+              <span className="text-merit-text-muted text-xs">Issues Identified</span>
             </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Disclaimer */}
+        <AnimatedSection delay={0.05}>
+          <div className="bg-merit-card/50 backdrop-blur-xl border border-merit-warning/20 rounded-2xl p-4 mb-6 shadow-lg shadow-black/10">
+            <p className="text-merit-text-muted text-xs leading-relaxed">
+              This report identifies potential issues for attorney review. It does not constitute legal advice, medical advice, or an expert medical opinion. All findings should be independently verified by qualified professionals before any legal action.
+            </p>
           </div>
         </AnimatedSection>
 

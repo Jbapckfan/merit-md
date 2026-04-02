@@ -13,10 +13,10 @@ export default function ScoreBadge({ score, size = "md" }: ScoreBadgeProps) {
 
   const label =
     score <= 3
-      ? "Low Risk"
+      ? "Few Issues"
       : score <= 6
-        ? "Moderate Risk"
-        : "High Risk";
+        ? "Multiple Issues"
+        : "Significant Issues";
 
   const sizeClasses = {
     sm: "w-10 h-10 text-lg",
