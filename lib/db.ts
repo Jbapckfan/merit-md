@@ -80,6 +80,21 @@ function initSchema(db: Database.Database) {
     );
 
     CREATE INDEX IF NOT EXISTS idx_patient_cases_email ON patient_cases(email);
+
+    CREATE TABLE IF NOT EXISTS chart_reviews (
+      id TEXT PRIMARY KEY,
+      user_id TEXT,
+      chief_complaint TEXT,
+      facility_type TEXT,
+      chart_text TEXT NOT NULL,
+      review_result TEXT,
+      overall_grade TEXT,
+      risk_flags_count INTEGER DEFAULT 0,
+      created_at TEXT DEFAULT (datetime('now'))
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_chart_reviews_user ON chart_reviews(user_id);
+    CREATE INDEX IF NOT EXISTS idx_chart_reviews_created ON chart_reviews(created_at);
   `);
 }
 

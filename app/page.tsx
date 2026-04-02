@@ -45,6 +45,18 @@ function StethoscopeIcon({ className = "w-8 h-8" }: { className?: string }) {
   );
 }
 
+function ClipboardCheckIcon({ className = "w-8 h-8" }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+      />
+    </svg>
+  );
+}
+
 /* ─────────────────────────── card data ─────────────────────────── */
 
 const cards = [
@@ -96,6 +108,20 @@ const cards = [
     buttonText: "Open Clinical Tool",
     href: "/clinician",
     brand: "MedMal Review Pro",
+    subOptions: null,
+  },
+  {
+    icon: ClipboardCheckIcon,
+    iconColor: "text-[#22c55e]",
+    iconBg: "bg-[#22c55e]/10 border-[#22c55e]/20",
+    glowColor: "rgba(34, 197, 94, 0.15)",
+    headline: "Review Before You Sign",
+    description:
+      "AI-powered pre-sign chart review. Catch documentation gaps, risk flags, and standard-of-care issues before your note becomes a legal record.",
+    priceTag: "From $59/physician/month",
+    buttonText: "Start Reviewing",
+    href: "/chartreview",
+    brand: "ChartReview Pro",
     subOptions: null,
   },
 ];
@@ -185,7 +211,7 @@ export default function GatewayPage() {
           </motion.div>
 
           {/* ── Three Cards ── */}
-          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {cards.map((card, i) => {
               const Icon = card.icon;
               return (

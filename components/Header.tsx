@@ -9,10 +9,13 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
   const isAttorneySection = pathname?.startsWith("/attorney");
   const isPatientSection = pathname?.startsWith("/patient");
   const isClinicianSection = pathname?.startsWith("/clinician");
+  const isChartReviewSection = pathname?.startsWith("/chartreview");
 
   // Determine brand name based on section
   let brandName = "MedMal Review";
   let brandHref = "/";
+  let brandIcon = "M";
+  let brandBg = "bg-merit-accent";
   if (isAttorneySection) {
     brandName = "MedMal Review Pro";
     brandHref = "/attorney";
@@ -22,18 +25,23 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
   } else if (isClinicianSection) {
     brandName = "MedMal Review Pro";
     brandHref = "/clinician";
+  } else if (isChartReviewSection) {
+    brandName = "ChartReview Pro";
+    brandHref = "/chartreview";
+    brandIcon = "CR";
+    brandBg = "bg-[#22c55e]";
   }
 
   // Determine which anchor links to show (section-specific pages)
-  const showSectionAnchors = isAttorneySection || isPatientSection;
-  const anchorPrefix = isAttorneySection ? "/attorney" : isPatientSection ? "/patient" : "";
+  const showSectionAnchors = isAttorneySection || isPatientSection || isChartReviewSection;
+  const anchorPrefix = isAttorneySection ? "/attorney" : isPatientSection ? "/patient" : isChartReviewSection ? "/chartreview" : "";
 
   return (
     <header className="border-b border-merit-border bg-merit-bg/80 backdrop-blur-md sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href={brandHref} className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-merit-accent flex items-center justify-center text-white font-bold text-sm">
-            M
+          <div className={`w-8 h-8 rounded-lg ${brandBg} flex items-center justify-center text-white font-bold text-sm`}>
+            {brandIcon}
           </div>
           <span className="text-merit-text font-semibold text-lg tracking-tight">
             {brandName}
@@ -80,6 +88,12 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
               >
                 For Clinicians
               </Link>
+              <Link
+                href="/chartreview"
+                className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+              >
+                ChartReview Pro
+              </Link>
             </>
           )}
 
@@ -108,6 +122,14 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
                   className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
                 >
                   For Patients
+                </Link>
+              )}
+              {!isChartReviewSection && (
+                <Link
+                  href="/chartreview"
+                  className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+                >
+                  ChartReview Pro
                 </Link>
               )}
             </>
