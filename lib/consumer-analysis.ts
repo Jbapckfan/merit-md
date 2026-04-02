@@ -5,6 +5,7 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { getKnowledgeForText } from "./clinical-knowledge";
+import { getMedLegalContext } from "./medical-legal-expert";
 
 const execFileAsync = promisify(execFile);
 
@@ -28,6 +29,7 @@ export interface ConsumerReport {
 function buildConsumerSystemPrompt(description: string, clinicalText: string): string {
   const combined = `${description}\n${clinicalText}`;
   const knowledgeContext = getKnowledgeForText(combined);
+  const medLegalContext = getMedLegalContext(combined);
 
   return `You are a board-certified emergency medicine physician helping a patient understand whether they may have received substandard medical care.
 
@@ -50,6 +52,7 @@ When assessing the case, also evaluate the four things a lawyer needs to prove (
 Include a plain-language summary of whether all four elements appear to be present. If one is weak or missing, explain which one and why — this helps the patient understand their situation honestly before talking to a lawyer.
 
 ${knowledgeContext}
+${medLegalContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
 {

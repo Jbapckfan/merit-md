@@ -5,6 +5,7 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { getKnowledgeForText } from "./clinical-knowledge";
+import { getMedLegalContext } from "./medical-legal-expert";
 
 const execFileAsync = promisify(execFile);
 
@@ -28,8 +29,9 @@ export interface MeritReport {
 
 function buildSystemPrompt(clinicalText: string): string {
   const knowledgeContext = getKnowledgeForText(clinicalText);
+  const medLegalContext = getMedLegalContext(clinicalText);
 
-  return `You are an experienced emergency medicine physician reviewing clinical records for potential medical malpractice. Analyze the following medical records and produce a structured merit assessment.
+  return `You are an experienced emergency medicine physician AND medical-legal expert reviewing clinical records for potential medical malpractice. You have deep expertise in both the clinical standard of care and the litigation framework. Analyze the following medical records and produce a structured merit assessment.
 
 For each potential issue found, provide:
 1. Category (missed diagnosis, delayed treatment, documentation gap, protocol violation, EMTALA issue)
@@ -53,6 +55,7 @@ After clinical analysis, also assess:
 - Key defense arguments the opposing side would raise
 - Suggested deposition questions for the treating physician
 ${knowledgeContext}
+${medLegalContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
 {
