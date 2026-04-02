@@ -11,36 +11,36 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-merit-accent flex items-center justify-center text-white font-bold text-sm">
                 M
               </div>
-              <span className="text-merit-text font-semibold text-lg">MedMal Review Pro</span>
+              <span className="text-merit-text font-semibold text-lg">MedMal Review</span>
             </div>
             <p className="text-merit-text-muted text-sm max-w-md leading-relaxed">
-              AI-powered clinical merit review for medical malpractice cases.
-              Built by physicians, for attorneys. MedMal Review Buddy is our consumer service.
+              AI-powered medical chart intelligence built by emergency physicians.
+              Tools for attorneys, patients, and clinicians.
             </p>
           </div>
 
-          {/* Links */}
+          {/* Products */}
           <div>
-            <h4 className="text-merit-text font-medium text-sm mb-4">Product</h4>
+            <h4 className="text-merit-text font-medium text-sm mb-4">Products</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#how-it-works" className="text-merit-text-muted hover:text-merit-text text-sm transition">
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-merit-text-muted hover:text-merit-text text-sm transition">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <Link href="/signup" className="text-merit-text-muted hover:text-merit-text text-sm transition">
-                  Get Started
+                <Link href="/attorney" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  For Attorneys
                 </Link>
               </li>
               <li>
                 <Link href="/patient" className="text-merit-text-muted hover:text-merit-text text-sm transition">
                   For Patients
+                </Link>
+              </li>
+              <li>
+                <Link href="/clinician" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  For Clinicians
+                </Link>
+              </li>
+              <li>
+                <Link href="/signup" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  Get Started
                 </Link>
               </li>
             </ul>
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="border-t border-merit-border mt-10 pt-6 text-center">
           <p className="text-merit-text-muted text-xs">
-            &copy; 2026 MedMal Review Pro. Built by physicians, for attorneys.
+            &copy; 2026 MedMal Review. Built by physicians, for everyone.
           </p>
         </div>
       </div>

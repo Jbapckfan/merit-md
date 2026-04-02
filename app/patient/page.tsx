@@ -682,7 +682,7 @@ export default function PatientLandingPage() {
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-[#9490b0] text-sm">
               Are you an attorney?{" "}
-              <Link href="/" className="text-[#4f8ff7] hover:text-[#6ba1ff] font-medium transition">
+              <Link href="/attorney" className="text-[#4f8ff7] hover:text-[#6ba1ff] font-medium transition">
                 Visit our law firm portal
               </Link>
             </p>
