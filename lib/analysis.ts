@@ -45,6 +45,13 @@ Then provide an overall assessment:
 - Recommended next steps for the attorney
 
 Be thorough but honest. If the care was appropriate, say so clearly.
+
+After clinical analysis, also assess:
+- Which elements of malpractice (duty, breach, causation, damages) are supported by the evidence
+- Estimated damages severity on a 1-9 scale (1 = temporary minor injury, 9 = death)
+- Whether a Certificate of Merit would likely be issued based on these findings
+- Key defense arguments the opposing side would raise
+- Suggested deposition questions for the treating physician
 ${knowledgeContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
@@ -53,7 +60,7 @@ IMPORTANT: Respond ONLY with valid JSON in this exact format:
   "summary": "<string>",
   "findings": [
     {
-      "category": "<missed diagnosis|delayed treatment|documentation gap|protocol violation|EMTALA issue>",
+      "category": "<missed diagnosis|delayed treatment|documentation gap|protocol violation|EMTALA issue|medication error|procedural complication>",
       "severity": "<critical|major|minor>",
       "description": "<string>",
       "evidence": "<string>",
@@ -62,7 +69,17 @@ IMPORTANT: Respond ONLY with valid JSON in this exact format:
   ],
   "strengths": ["<string>"],
   "weaknesses": ["<string>"],
-  "recommendations": ["<string>"]
+  "recommendations": ["<string>"],
+  "legalAssessment": {
+    "dutyEstablished": "<yes|no|unclear> — brief explanation",
+    "breachIdentified": "<yes|no|unclear> — brief explanation",
+    "causationSupported": "<yes|no|unclear> — brief explanation",
+    "damagesSeverity": <number 1-9>,
+    "damagesDescription": "<string>",
+    "certificateOfMerit": "<likely|unlikely|borderline> — brief explanation",
+    "keyDefenseArguments": ["<string>"],
+    "depositionQuestions": ["<string>"]
+  }
 }`;
 }
 

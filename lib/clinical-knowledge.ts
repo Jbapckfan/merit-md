@@ -2,6 +2,234 @@
 // Structured clinical knowledge injected into analysis and chat prompts.
 // This is the moat — impossible to replicate without an ER physician.
 
+// ── Legal Framework ──
+// Elements of medical malpractice, statute of limitations, expert witness
+// requirements, damages assessment, and hospital risk management.
+// Authoritative for both plaintiff and defense counsel pre-screening.
+
+export const LEGAL_FRAMEWORK = {
+  // Elements of medical malpractice
+  elementsOfMalpractice: {
+    duty: {
+      description:
+        "A physician-patient relationship existed, creating a duty of care",
+      keyQuestions: [
+        "Was there a documented physician-patient encounter?",
+        "Did the physician assume care (even informally, e.g., phone orders)?",
+        "Was there an on-call obligation that created duty?",
+        "Does vicarious liability apply (hospital vs. independent contractor)?",
+      ],
+      caseReferences: [
+        "Ybarra v. Spangard (1944) — res ipsa loquitur in medical context",
+        "Canterbury v. Spence (1972) — informed consent standard",
+      ],
+    },
+    breach: {
+      description:
+        "The physician deviated from the accepted standard of care",
+      standardDefinition:
+        "The level of care, skill, and treatment that a reasonably competent physician in the same specialty would provide under similar circumstances",
+      keyQuestions: [
+        "What would a reasonable ER physician have done in this situation?",
+        "Were national guidelines or hospital protocols violated?",
+        "Was the deviation a judgment call or a clear protocol failure?",
+        "Is there a 'respectable minority' defense for the approach taken?",
+      ],
+      standardSources: [
+        "ACEP Clinical Policies (strongest for EM standard of care)",
+        "AHA/ACC Guidelines (cardiac)",
+        "Surviving Sepsis Campaign (sepsis)",
+        "ATLS (trauma)",
+        "Hospital-specific protocols and order sets",
+        "CMS Conditions of Participation",
+        "Joint Commission standards",
+        "State medical board regulations",
+      ],
+    },
+    causation: {
+      description:
+        "The breach directly caused or substantially contributed to the patient's injury",
+      types: [
+        "Cause-in-fact (but-for causation): but for the physician's action/inaction, the injury would not have occurred",
+        "Proximate cause: the injury was a foreseeable consequence of the breach",
+        "Loss of chance doctrine: even if outcome uncertain, the breach reduced the probability of a better outcome (varies by state)",
+        "Substantial factor test: the breach was a substantial factor in causing harm (some jurisdictions)",
+      ],
+      keyQuestions: [
+        "Would the patient have survived/recovered with proper care?",
+        "What is the statistical difference in outcomes with vs. without proper treatment?",
+        "Were there intervening causes that broke the chain of causation?",
+        "Does the loss-of-chance doctrine apply in this jurisdiction?",
+      ],
+      challenges: [
+        "Pre-existing conditions that complicate causation",
+        "Multiple treating physicians — apportioning fault",
+        "Delayed diagnosis — proving earlier detection would have changed outcome",
+        "Patient non-compliance contributing to outcome",
+      ],
+    },
+    damages: {
+      types: {
+        economic: [
+          "Past and future medical expenses",
+          "Lost wages and earning capacity",
+          "Life care plan costs (catastrophic injury)",
+          "Home modification and adaptive equipment",
+          "Cost of future surgeries or treatments",
+        ],
+        nonEconomic: [
+          "Pain and suffering",
+          "Loss of enjoyment of life",
+          "Emotional distress",
+          "Loss of consortium (spouse's claim)",
+          "Disfigurement",
+        ],
+        punitive:
+          "Available in egregious cases — gross negligence, recklessness, or intentional misconduct. Varies significantly by state. Most med-mal cases do not support punitive damages.",
+        wrongfulDeath: [
+          "Survival action (patient's pain/suffering before death)",
+          "Wrongful death action (family's losses — support, companionship, funeral costs)",
+          "Beneficiaries defined by state statute",
+        ],
+      },
+      capsByState: {
+        note: "Many states cap non-economic damages in med-mal. Verify current caps.",
+        examples: [
+          "California (MICRA): $350K non-economic (increased from $250K in 2023, rises annually)",
+          "Texas: $250K per physician, $500K total non-economic",
+          "Colorado: $300K non-economic, $1M total",
+          "Florida: Caps repealed in 2023 (no current cap)",
+          "New York: No caps on damages",
+          "Illinois: Caps ruled unconstitutional",
+          "Ohio: $250K-$500K non-economic depending on severity",
+        ],
+      },
+    },
+  },
+
+  // Statute of limitations (critical screening question)
+  statuteOfLimitations: {
+    general:
+      "Typically 1-3 years from date of injury or discovery. Varies by state.",
+    discoveryRule:
+      "Clock starts when the patient knew or should have known about the injury — not necessarily the date of treatment.",
+    tolling: [
+      "Minor patients: clock may not start until age of majority",
+      "Continuing treatment doctrine: clock paused while same provider treats same condition",
+      "Fraudulent concealment: clock paused if provider hid the error",
+      "Mental incapacity: may toll the statute",
+    ],
+    absoluteRepose:
+      "Many states have an absolute statute of repose (5-10 years) regardless of discovery. Check state law.",
+    screeningQuestions: [
+      "When did the alleged malpractice occur?",
+      "When did you first become aware something went wrong?",
+      "Have you been receiving ongoing treatment from the same provider?",
+      "Is the patient a minor?",
+      "What state did the treatment occur in?",
+    ],
+  },
+
+  // Expert witness requirements
+  expertWitness: {
+    requirements: [
+      "Most states require a qualified medical expert to establish standard of care and breach",
+      "Expert must typically be in same or similar specialty",
+      "Many states require a Certificate of Merit or Affidavit of Merit before filing",
+      "Some states allow the case to proceed without expert if res ipsa loquitur applies",
+    ],
+    qualifications: [
+      "Board certified in same or related specialty",
+      "Active clinical practice (not just academic — varies by state)",
+      "Familiar with standard of care at the time of the incident",
+      "No excessive testimony history (credibility concern)",
+    ],
+    certificateOfMerit: {
+      description:
+        "Many states require a physician's affidavit that the case has merit BEFORE the lawsuit can proceed",
+      states:
+        "Required in: CA, CT, FL, GA, IL, MD, MI, NJ, NY, OH, PA, TX, and others",
+      timing: "Usually must be filed with or shortly after the complaint",
+      significance:
+        "This is exactly what Merit-MD provides — the pre-filing clinical assessment",
+    },
+  },
+
+  // Damages assessment framework
+  damagesAssessment: {
+    severityScale: {
+      1: "Temporary minor injury, full recovery expected",
+      2: "Temporary significant injury requiring treatment",
+      3: "Temporary major injury, extended treatment needed",
+      4: "Permanent minor disability or disfigurement",
+      5: "Permanent significant disability",
+      6: "Permanent major disability, loss of independence",
+      7: "Catastrophic injury (brain damage, paralysis)",
+      8: "Near-fatal, requires lifelong care",
+      9: "Death of patient",
+    } as Record<number, string>,
+    valuationFactors: [
+      "Patient age (younger = higher lifetime damages)",
+      "Patient earning capacity (documented income history)",
+      "Severity and permanence of injury",
+      "Impact on daily activities and quality of life",
+      "Jurisdiction (verdict ranges vary enormously by county)",
+      "Strength of liability evidence",
+      "Sympathy factor (jury appeal of plaintiff)",
+      "Defendant's conduct (egregious vs. honest mistake)",
+    ],
+  },
+
+  // Hospital risk management specific
+  hospitalRiskManagement: {
+    proactiveReviewTriggers: [
+      "Unexpected death or serious harm (sentinel event)",
+      "Rapid response or code blue activation",
+      "Transfer to higher level of care within 24 hours",
+      "Unplanned return to ED within 72 hours",
+      "Patient complaint about clinical care",
+      "Against medical advice (AMA) discharge",
+      "Medication error or adverse drug event",
+      "Fall with injury",
+      "Surgical site infection or wrong-site surgery",
+      "Blood product reaction",
+      "Delay in treatment > 1 hour for emergent conditions",
+    ],
+    riskScoring: {
+      highRisk: [
+        "Missed MI, stroke, PE, or ectopic pregnancy",
+        "Delayed sepsis recognition with poor outcome",
+        "EMTALA violation",
+        "Medication error causing harm",
+        "Failure to act on critical lab/imaging results",
+        "Patient death within 24 hours of ED discharge",
+      ],
+      moderateRisk: [
+        "Delayed diagnosis with eventual recovery",
+        "Documentation gaps in high-acuity encounters",
+        "Inadequate informed consent documentation",
+        "Communication failures at handoff",
+        "Missed fracture requiring delayed surgery",
+      ],
+      lowRisk: [
+        "Minor documentation deficiencies",
+        "Delayed non-urgent follow-up",
+        "Patient satisfaction concerns without clinical impact",
+        "Process deviations without patient harm",
+      ],
+    },
+    rootCauseCategories: [
+      "Diagnostic error (cognitive: anchoring, premature closure, availability bias)",
+      "Communication failure (handoff, specialist consultation, patient communication)",
+      "System failure (staffing, equipment, IT, process design)",
+      "Medication error (wrong drug, dose, route, timing, patient)",
+      "Procedural error (technique, wrong site, retained foreign body)",
+      "Monitoring failure (delayed recognition of deterioration)",
+      "Disposition error (premature discharge, inappropriate admission level)",
+    ],
+  },
+} as const;
+
 export const CLINICAL_KNOWLEDGE = {
   // Standard of care references by chief complaint
   standardsOfCare: {
@@ -349,6 +577,286 @@ export const CLINICAL_KNOWLEDGE = {
         "Todd et al. meta-analysis on surgical timing in CES",
       ],
     },
+    acuteMI: {
+      requiredWorkup: [
+        "12-lead ECG within 10 minutes of arrival",
+        "Immediate cardiology/cath lab notification for STEMI",
+        "Door-to-balloon time < 90 minutes (PCI-capable facility)",
+        "Door-to-needle time < 30 minutes if fibrinolysis chosen (non-PCI facility)",
+        "Door-in-door-out time < 120 minutes for transfer to PCI center",
+        "Aspirin 325 mg (chewed) immediately unless true allergy",
+        "P2Y12 inhibitor loading dose (clopidogrel, ticagrelor, or prasugrel)",
+        "Anticoagulation (heparin) initiated per STEMI protocol",
+        "Serial troponins (high-sensitivity: 0/1h or 0/3h protocol)",
+        "Continuous cardiac monitoring from time of recognition",
+        "Assessment for cardiogenic shock (Killip classification)",
+        "Repeat ECG if initial non-diagnostic but clinical suspicion remains",
+        "Right-sided ECG leads (V4R) for inferior STEMI to assess RV involvement",
+        "Echocardiography for wall motion abnormalities and EF assessment",
+      ],
+      redFlags: [
+        "Door-to-balloon time > 90 minutes without documented justification",
+        "STEMI on ECG without immediate cath lab activation",
+        "No aspirin given (or delay > 10 minutes) without documented allergy",
+        "Single troponin used to rule out ACS in a patient with ongoing symptoms",
+        "Inferior STEMI without right-sided leads obtained",
+        "STEMI patient transferred without pre-activation of receiving cath lab",
+        "NSTEMI with high-risk features (TIMI >= 5) without admission to monitored bed",
+        "Cardiogenic shock not recognized or treated with vasopressors/mechanical support",
+        "Beta-blocker given to patient in cardiogenic shock or decompensated HF",
+        "Failure to activate cath lab for new LBBB with acute ischemic symptoms",
+      ],
+      commonDeviations: [
+        "Delayed ECG beyond 10-minute benchmark",
+        "Cath lab activation delays due to communication failures or off-hours staffing",
+        "Failure to recognize STEMI equivalents (de Winter T-waves, Wellens syndrome, posterior MI)",
+        "Inadequate antiplatelet loading before PCI",
+        "No risk stratification tool documented (TIMI, GRACE, or HEART score)",
+        "Delay in transfer decision for patients at non-PCI-capable facilities",
+        "Failure to recognize and treat right ventricular infarction appropriately (avoid nitrates, volume-dependent)",
+        "Discharge of NSTEMI without stress testing or cardiology follow-up arranged",
+      ],
+      expertWitnessPoints: [
+        "AHA/ACC Guidelines for Management of STEMI (2013, focused update 2015)",
+        "AHA/ACC Guidelines for Management of NSTE-ACS (2014)",
+        "ACC/AHA Door-to-Balloon Alliance benchmarks",
+        "ACEP Clinical Policy on Acute Coronary Syndromes (2018)",
+        "Mission: Lifeline program standards",
+        "Fourth Universal Definition of Myocardial Infarction (2018)",
+      ],
+    },
+    backPainRedFlags: {
+      requiredWorkup: [
+        "Complete neurological exam: motor strength (L2-S1 myotomes), sensation (dermatomes), reflexes (patellar L3-4, Achilles S1-2)",
+        "Straight leg raise and crossed straight leg raise testing",
+        "Assessment for saddle anesthesia, perineal sensation, rectal tone",
+        "Post-void residual or bladder scan if urinary symptoms present",
+        "Red flag screening documented: fever, weight loss, IV drug use, cancer history, immunosuppression, trauma, anticoagulation, age > 50 with new onset",
+        "Emergent MRI for suspected cauda equina, epidural abscess, or cord compression",
+        "CT or MRI for trauma patients with neurological deficits",
+        "ESR/CRP if infectious or inflammatory etiology suspected",
+        "Blood cultures if epidural abscess suspected",
+        "Assessment for abdominal aortic aneurysm in patients > 50 with back pain and vascular risk factors",
+      ],
+      redFlags: [
+        "Progressive bilateral neurological deficits without emergent imaging",
+        "Bowel or bladder dysfunction in back pain patient without urgent evaluation",
+        "IV drug user with back pain and fever without MRI and blood cultures",
+        "Known cancer patient with new back pain without imaging for metastatic disease",
+        "Saddle anesthesia or perineal numbness not assessed",
+        "Severe back pain with fever attributed to musculoskeletal strain without infection workup",
+        "Back pain with pulse deficit or hemodynamic instability without vascular assessment",
+        "Thoracic back pain dismissed without considering thoracic disc, aneurysm, or visceral causes",
+        "Immunocompromised patient with back pain discharged without imaging",
+        "Anticoagulated patient with acute back pain without epidural hematoma consideration",
+      ],
+      commonDeviations: [
+        "Incomplete neurological exam (documenting only 'neuro intact' without specifics)",
+        "Failure to perform rectal exam when cauda equina is in the differential",
+        "Premature diagnosis of musculoskeletal back pain without red flag screening",
+        "Discharging patients with unilateral foot drop without urgent MRI and neurosurgery referral",
+        "Not checking post-void residual when patient reports urinary difficulty",
+        "Anchoring on prior back pain history and missing new pathology",
+        "Attributing thoracic back pain to MSK without considering pulmonary, cardiac, or aortic causes",
+        "Failure to reassess patient after pain medication — improvement does not exclude serious pathology",
+        "No return precautions specific to neurological warning signs",
+      ],
+      expertWitnessPoints: [
+        "AANS/CNS Guidelines on cauda equina syndrome",
+        "ACEP Clinical Policy: Critical Issues in Evaluation of Adult Patients with Non-traumatic Back Pain",
+        "ACR Appropriateness Criteria for Low Back Pain",
+        "NICE Guidelines: Low Back Pain and Sciatica (NG59)",
+        "IDSA Guidelines for Diagnosis and Management of Vertebral Osteomyelitis and Spinal Epidural Abscess",
+      ],
+    },
+    medicationErrors: {
+      requiredWorkup: [
+        "Medication reconciliation documented at admission and discharge",
+        "Allergy history verified and prominently documented in chart",
+        "Weight-based dosing calculation documented for pediatric and weight-dependent medications",
+        "Renal function checked before nephrotoxic or renally-cleared medications",
+        "Hepatic function checked before hepatically-metabolized medications",
+        "Drug-drug interaction screening performed and documented",
+        "High-alert medication double-check process followed (insulin, heparin, opioids, chemotherapy, paralytics)",
+        "Independent double-check for high-alert IV drips (two-nurse verification)",
+        "Patient identity verification (two identifiers) before medication administration",
+        "Verbal/telephone order read-back documented",
+      ],
+      redFlags: [
+        "Wrong drug administered (name confusion: hydromorphone/morphine, metoprolol/methotrexate)",
+        "10x dosing error (decimal point errors, especially pediatric dosing)",
+        "Medication given despite documented allergy",
+        "No weight documented for weight-based dosing",
+        "Paralytic agent administered without sedation and ventilation",
+        "Anticoagulant overdose without INR/aPTT monitoring",
+        "Insulin dose without glucose monitoring protocol",
+        "Known drug interaction not addressed (warfarin + fluoroquinolone, methotrexate + trimethoprim)",
+        "Potassium chloride IV push (never appropriate — always dilute and infuse)",
+        "Wrong route of administration (intrathecal vincristine = universally fatal)",
+        "Medication administered to wrong patient",
+        "Discharge without reconciling pre-admission medications",
+      ],
+      commonDeviations: [
+        "Failure to adjust doses for renal insufficiency (especially vancomycin, gentamicin, enoxaparin)",
+        "No monitoring after high-alert medication administration",
+        "Verbal orders not documented or read back",
+        "Pre-printed order sets used without patient-specific modification",
+        "Failure to check drug levels when indicated (vancomycin trough, digoxin, phenytoin)",
+        "Inadequate pain reassessment after opioid administration",
+        "Failure to hold or adjust anticoagulation for procedures",
+        "No allergy band or allergy field incomplete in EHR",
+        "Nurse-to-nurse handoff not including active drip rates and recent medication timing",
+        "Discharge prescriptions conflicting with inpatient medication changes",
+      ],
+      expertWitnessPoints: [
+        "ISMP (Institute for Safe Medication Practices) High-Alert Medications List",
+        "Joint Commission National Patient Safety Goals (NPSG) — medication safety",
+        "ISMP Guidelines for Standard Order Sets",
+        "FDA MedWatch safety reporting data on implicated medications",
+        "AHRQ Patient Safety Network — Medication Errors",
+        "CMS Conditions of Participation — Pharmaceutical Services",
+      ],
+    },
+    fallsInED: {
+      requiredWorkup: [
+        "Fall risk assessment on arrival (Morse Fall Scale or equivalent)",
+        "Reassessment after sedation, opioid administration, or change in mental status",
+        "Non-skid footwear provided and documented",
+        "Bed in lowest position, side rails up when appropriate",
+        "Call bell within reach and patient instructed on use",
+        "Continuous observation or 1:1 sitter for high-risk patients",
+        "Post-fall neurological assessment and imaging as indicated",
+        "Post-fall vital signs and injury assessment documented",
+        "Incident report filed for any fall event",
+        "Restraint assessment and alternatives documented before restraint use",
+      ],
+      redFlags: [
+        "No fall risk assessment documented for elderly, sedated, or altered patients",
+        "Fall from stretcher in patient who received sedating medications without precautions",
+        "Restraints applied without physician order or without documented reassessment",
+        "Anticoagulated patient fall without CT head and coagulation studies",
+        "No post-fall neurological checks for patient with head strike",
+        "Patient found on floor with no documentation of preceding assessment",
+        "Side rails not addressed in documentation for confused or sedated patients",
+        "Fall in patient left unattended on a procedure table or during transport",
+      ],
+      commonDeviations: [
+        "Fall risk assessment done but not acted upon (risk identified, no interventions documented)",
+        "Failure to reassess fall risk after administering sedating medications",
+        "Restraint documentation incomplete — missing time checks, circulation checks, release attempts",
+        "Sitter ordered but not available, and no alternative precautions implemented",
+        "Bed alarm not activated for patients at risk",
+        "No standard fall prevention protocol in the department",
+        "Post-fall assessment delayed or incomplete",
+        "Staff not trained on proper restraint application and monitoring",
+      ],
+      expertWitnessPoints: [
+        "Joint Commission National Patient Safety Goals (Falls Prevention)",
+        "CMS Conditions of Participation — Restraint and Seclusion",
+        "AHRQ Fall Prevention Toolkit (Preventing Falls in Hospitals)",
+        "ANA Position Statement on Reduction of Patient Restraint",
+        "State-specific restraint regulations and reporting requirements",
+      ],
+    },
+    psychiatricEmergencies: {
+      requiredWorkup: [
+        "Suicide risk assessment using validated tool (Columbia Suicide Severity Rating Scale — C-SSRS, PHQ-9 Item 9, ASQ)",
+        "Medical clearance: vital signs, glucose, mental status exam, toxicology screen, pregnancy test if applicable",
+        "Assessment for organic causes of psychiatric symptoms (infection, metabolic, endocrine, neurological, toxic)",
+        "Collateral history obtained from family/friends/EMS when possible",
+        "Safety assessment: access to lethal means (firearms, medications), plan specificity, prior attempts",
+        "1:1 observation for actively suicidal or homicidal patients",
+        "Search for weapons or harmful objects, belongings secured",
+        "Involuntary hold documentation per state statute (5150, Baker Act, etc.)",
+        "Psychiatric consultation or crisis team evaluation",
+        "Safe disposition plan: inpatient psychiatric admission, crisis stabilization unit, or safe discharge with crisis plan",
+        "Medication reconciliation including psychiatric medications (abrupt SSRI/benzo discontinuation assessment)",
+      ],
+      redFlags: [
+        "Suicidal patient discharged without documented safety assessment and plan",
+        "No 1:1 observation for patient expressing active suicidal ideation with plan",
+        "Medical clearance not performed before psychiatric evaluation",
+        "Patient with altered mental status attributed solely to psychiatric illness without organic workup",
+        "Involuntary hold not initiated for patient meeting criteria (imminent danger to self or others)",
+        "Patient with prior suicide attempt and current ideation discharged home without psychiatry evaluation",
+        "No lethal means assessment documented",
+        "Patient left ED against medical advice without psychiatry assessment when on hold",
+        "Seclusion or restraint without documented de-escalation attempts",
+        "Intoxicated patient discharged before sober re-evaluation of mental status",
+      ],
+      commonDeviations: [
+        "Abbreviated or absent suicide risk assessment (documenting only 'denies SI' without structured assessment)",
+        "Failure to obtain collateral information from family or outpatient providers",
+        "Prolonged ED boarding of psychiatric patients without reassessment",
+        "Inadequate medical clearance (no vitals, no glucose, no basic labs)",
+        "Premature discharge of suicidal patient because they 'contracted for safety' (safety contracts have no evidence base)",
+        "Failure to assess for and document access to firearms",
+        "No crisis safety plan created for patients discharged with passive suicidal ideation",
+        "Medications with lethal overdose potential prescribed at discharge without limiting quantity",
+        "No communication with outpatient mental health provider at discharge",
+        "Chemical restraint (intramuscular medication) without monitoring vitals and airway adequacy",
+      ],
+      expertWitnessPoints: [
+        "The Joint Commission Sentinel Event Alert #56: Detecting and Treating Suicide Ideation in All Settings",
+        "APA Practice Guidelines for Assessment and Treatment of Suicidal Behaviors",
+        "ACEP Clinical Policy: Critical Issues in Diagnosis and Management of Adult Psychiatric Patients in the ED",
+        "Columbia Suicide Severity Rating Scale (C-SSRS) validation studies",
+        "CMS Conditions of Participation — Patients' Rights (restraint and seclusion requirements)",
+        "State-specific involuntary hold statutes and procedures",
+        "SAMHSA National Strategy for Suicide Prevention",
+      ],
+    },
+    proceduralComplications: {
+      requiredWorkup: [
+        "Informed consent documented: risks, benefits, alternatives, and patient questions addressed",
+        "Pre-procedure timeout: correct patient, correct procedure, correct site, correct laterality",
+        "Conscious sedation: pre-sedation assessment (ASA class, airway evaluation, fasting status)",
+        "Continuous monitoring during sedation: pulse oximetry, capnography, cardiac monitor, BP at minimum every 5 minutes",
+        "Dedicated sedation provider (not performing the procedure) for moderate-to-deep sedation",
+        "Resuscitation equipment at bedside: suction, bag-valve-mask, intubation equipment, reversal agents",
+        "Post-procedure monitoring until patient meets discharge criteria (Aldrete score or equivalent)",
+        "Central line placement: ultrasound guidance documented, sterile technique with full barrier precautions, post-procedure chest X-ray",
+        "Intubation: pre-oxygenation, plan A/B/C documented, confirmation by ETCO2 (gold standard), post-intubation imaging",
+        "Chest tube: imaging confirmation of placement, monitoring for complications (bleeding, re-expansion pulmonary edema)",
+        "Procedural note: indication, consent, technique, complications, specimens, and disposition",
+      ],
+      redFlags: [
+        "No informed consent documented for elective procedure",
+        "Conscious sedation without continuous capnography or pulse oximetry",
+        "Single operator performing both sedation and procedure for moderate/deep sedation",
+        "Central line placed without ultrasound guidance (unless emergent)",
+        "No post-procedure chest X-ray after central line or chest tube placement",
+        "ETT confirmation by auscultation alone without ETCO2",
+        "Procedural sedation in unfasted patient for non-emergent procedure without risk documentation",
+        "No timeout documented before procedure",
+        "Retained foreign body (sponge, wire, catheter fragment) not discovered",
+        "Nerve block without documented neurovascular assessment before and after",
+        "Deep sedation achieved without airway-trained provider and reversal agents present",
+      ],
+      commonDeviations: [
+        "Consent obtained but risks/alternatives not specifically documented",
+        "Sedation depth exceeding intended level without appropriate monitoring escalation",
+        "Post-sedation discharge before meeting objective criteria (patient walking, alert, tolerating PO)",
+        "Central line complications (pneumothorax, arterial puncture) not recognized promptly",
+        "Failure to use ultrasound for peripheral IV access in difficult-access patients (increases complications, delays care)",
+        "Incomplete procedural note — missing complication documentation or patient tolerance",
+        "No documentation of sterile technique compliance for central lines",
+        "Inadequate post-procedure pain management plan",
+        "Failure to document failed attempts and escalation to more experienced provider",
+        "Lumbar puncture performed without documenting opening pressure when indicated",
+        "Chest tube removed without clamping trial or post-removal imaging",
+      ],
+      expertWitnessPoints: [
+        "ASA Practice Guidelines for Sedation and Analgesia by Non-Anesthesiologists (2018)",
+        "ACEP Clinical Policy on Procedural Sedation and Analgesia in the ED",
+        "Society of Hospital Medicine — Central Line Bundle compliance",
+        "CDC Guidelines for Prevention of Intravascular Catheter-Related Infections",
+        "ACS Statement on Use of Checklists (Surgical Safety Checklist / WHO model)",
+        "Difficult Airway Society Guidelines for Unanticipated Difficult Intubation",
+        "EAST Practice Management Guidelines — Tube Thoracostomy",
+        "AHRQ Toolkit for Preventing Central Line-Associated Bloodstream Infections",
+      ],
+    },
   },
 
   // EMTALA requirements
@@ -480,6 +988,51 @@ const KEYWORD_MAP: Record<string, string[]> = {
     "post-void residual", "perineal", "rectal tone", "back pain",
     "lumbar", "disc herniation",
   ],
+  acuteMI: [
+    "stemi", "nstemi", "st elevation", "door-to-balloon", "cath lab",
+    "percutaneous coronary", "pci", "fibrinolysis", "killip",
+    "cardiogenic shock", "right ventricular", "rv infarct", "de winter",
+    "wellens", "posterior mi", "acute mi", "myocardial infarction",
+    "left bundle branch", "lbbb", "cardiac catheterization",
+  ],
+  backPainRedFlags: [
+    "back pain red flag", "epidural abscess", "spinal infection",
+    "vertebral osteomyelitis", "discitis", "iv drug use back pain",
+    "cancer back pain", "metastatic spine", "spinal cord compression",
+    "foot drop", "thoracic back pain", "myelopathy", "cord compression",
+    "epidural hematoma", "anticoagulation back pain",
+  ],
+  medicationErrors: [
+    "medication error", "wrong drug", "wrong dose", "wrong medication",
+    "drug allergy", "allergic reaction", "anaphylaxis", "dosing error",
+    "high alert medication", "insulin error", "heparin error",
+    "overdose", "drug interaction", "renal dosing", "weight-based dosing",
+    "medication reconciliation", "look-alike sound-alike",
+    "wrong patient", "wrong route",
+  ],
+  fallsInED: [
+    "fall in ed", "fall from stretcher", "patient fall", "fell in hospital",
+    "fall risk", "restraint", "side rails", "sitter", "bed alarm",
+    "unwitnessed fall", "fall with injury", "fell off bed",
+    "fell off gurney",
+  ],
+  psychiatricEmergencies: [
+    "suicide", "suicidal", "psychiatric emergency", "psych hold",
+    "5150", "baker act", "involuntary hold", "self harm",
+    "homicidal", "psychosis", "psychiatric evaluation",
+    "mental health crisis", "crisis", "suicide risk",
+    "overdose", "intentional ingestion", "self-inflicted",
+    "psychiatric clearance", "medical clearance psych",
+    "seclusion", "chemical restraint",
+  ],
+  proceduralComplications: [
+    "procedural complication", "conscious sedation", "sedation",
+    "central line", "intubation", "chest tube", "thoracostomy",
+    "lumbar puncture", "nerve block", "procedural sedation",
+    "informed consent", "wrong site", "retained foreign body",
+    "pneumothorax", "arterial puncture", "esophageal intubation",
+    "failed airway", "aspiration during sedation", "timeout",
+  ],
 };
 
 export type ClinicalCategory = keyof typeof CLINICAL_KNOWLEDGE.standardsOfCare;
@@ -567,6 +1120,58 @@ ${CLINICAL_KNOWLEDGE.defenseFramework.standardOfCareDefense.map((r) => `- ${r}`)
 
 **Common Defense Arguments:**
 ${CLINICAL_KNOWLEDGE.defenseFramework.commonDefenseArguments.map((r) => `- ${r}`).join("\n")}
+`);
+
+  // Always include legal framework context
+  sections.push(`
+### Legal Framework — Elements of Malpractice
+
+**Duty:** ${LEGAL_FRAMEWORK.elementsOfMalpractice.duty.description}
+Key questions:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.duty.keyQuestions.map((q) => `- ${q}`).join("\n")}
+
+**Breach:** ${LEGAL_FRAMEWORK.elementsOfMalpractice.breach.description}
+Definition: ${LEGAL_FRAMEWORK.elementsOfMalpractice.breach.standardDefinition}
+Key questions:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.breach.keyQuestions.map((q) => `- ${q}`).join("\n")}
+
+Standard sources:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.breach.standardSources.map((s) => `- ${s}`).join("\n")}
+
+**Causation:** ${LEGAL_FRAMEWORK.elementsOfMalpractice.causation.description}
+Types:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.causation.types.map((t) => `- ${t}`).join("\n")}
+
+Key questions:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.causation.keyQuestions.map((q) => `- ${q}`).join("\n")}
+
+Challenges:
+${LEGAL_FRAMEWORK.elementsOfMalpractice.causation.challenges.map((c) => `- ${c}`).join("\n")}
+
+**Damages:**
+Economic: ${LEGAL_FRAMEWORK.elementsOfMalpractice.damages.types.economic.map((d) => `${d}`).join(", ")}
+Non-economic: ${LEGAL_FRAMEWORK.elementsOfMalpractice.damages.types.nonEconomic.map((d) => `${d}`).join(", ")}
+Punitive: ${LEGAL_FRAMEWORK.elementsOfMalpractice.damages.types.punitive}
+Note on caps: ${LEGAL_FRAMEWORK.elementsOfMalpractice.damages.capsByState.note}
+
+### Damages Severity Scale
+${Object.entries(LEGAL_FRAMEWORK.damagesAssessment.severityScale).map(([k, v]) => `- ${k}: ${v}`).join("\n")}
+
+**Valuation Factors:**
+${LEGAL_FRAMEWORK.damagesAssessment.valuationFactors.map((f) => `- ${f}`).join("\n")}
+
+### Expert Witness Requirements
+${LEGAL_FRAMEWORK.expertWitness.requirements.map((r) => `- ${r}`).join("\n")}
+
+**Certificate of Merit:** ${LEGAL_FRAMEWORK.expertWitness.certificateOfMerit.description}
+States requiring: ${LEGAL_FRAMEWORK.expertWitness.certificateOfMerit.states}
+
+### Hospital Risk Management
+**Proactive Review Triggers:**
+${LEGAL_FRAMEWORK.hospitalRiskManagement.proactiveReviewTriggers.map((t) => `- ${t}`).join("\n")}
+
+**Root Cause Categories:**
+${LEGAL_FRAMEWORK.hospitalRiskManagement.rootCauseCategories.map((c) => `- ${c}`).join("\n")}
 `);
 
   return `\n## CLINICAL KNOWLEDGE BASE\nThe following clinical standards are relevant to this case. Use these when analyzing the records and formulating your response.\n${sections.join("\n")}`;

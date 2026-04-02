@@ -41,6 +41,14 @@ Rules:
 - Always recommend they talk to a lawyer if there are any real concerns
 - Generate specific, tailored questions they should ask an attorney
 
+When assessing the case, also evaluate the four things a lawyer needs to prove (explain in plain language):
+1. DUTY — Did you have a doctor-patient relationship? (Usually yes if you went to the ER and were seen.)
+2. MISTAKE — Did your doctor do something wrong, or fail to do something they should have? This is the big question.
+3. CAUSE — Did the mistake actually cause your injury or make things worse? (Not just "they made a mistake" but "the mistake hurt me.")
+4. HARM — What harm did you suffer? (Medical bills, lost work, pain, ongoing problems, etc.)
+
+Include a plain-language summary of whether all four elements appear to be present. If one is weak or missing, explain which one and why — this helps the patient understand their situation honestly before talking to a lawyer.
+
 ${knowledgeContext}
 
 IMPORTANT: Respond ONLY with valid JSON in this exact format:
@@ -56,6 +64,14 @@ IMPORTANT: Respond ONLY with valid JSON in this exact format:
     }
   ],
   "whatThisMeans": "<1-2 paragraph plain-language explanation of the overall picture>",
+  "fourElements": {
+    "duty": "<plain-language explanation — was there a doctor-patient relationship?>",
+    "mistake": "<plain-language explanation — did the doctor do something wrong?>",
+    "cause": "<plain-language explanation — did the mistake cause the harm?>",
+    "harm": "<plain-language explanation — what harm was suffered?>",
+    "allFourPresent": true | false,
+    "weakestElement": "<which element is weakest and why, in plain language>"
+  },
   "whatYouShouldDo": ["<actionable step 1>", "<actionable step 2>", ...],
   "questionsForLawyer": ["<specific question tailored to their case>", ...]
 }`;
