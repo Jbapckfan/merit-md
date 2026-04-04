@@ -152,14 +152,17 @@ async function callClaude(systemPrompt: string, clinicalText: string): Promise<s
   console.log("  [claude] Calling Claude CLI...");
   const startTime = Date.now();
 
+  // Read user prompt content for direct -p argument
+  const userPromptContent = await readFile(userPromptFile, "utf-8");
+
   return new Promise((resolve, reject) => {
     const proc = spawn("claude", [
-      "-p", "-",
+      "-p", userPromptContent,
       "--system-prompt-file", sysPromptFile,
       "--output-format", "text",
-      "--max-turns", "1",
+      "--max-turns", "5",
     ], {
-      stdio: ["pipe", "pipe", "pipe"],
+      stdio: ["ignore", "pipe", "pipe"],
     });
 
     const chunks: Buffer[] = [];
@@ -167,11 +170,6 @@ async function callClaude(systemPrompt: string, clinicalText: string): Promise<s
 
     proc.stdout.on("data", (chunk: Buffer) => chunks.push(chunk));
     proc.stderr.on("data", (chunk: Buffer) => errChunks.push(chunk));
-
-    // Pipe user prompt via stdin
-    const fs = require("node:fs");
-    const readStream = fs.createReadStream(userPromptFile);
-    readStream.pipe(proc.stdin);
 
     // Set a generous timeout — complex analysis can take a few minutes
     const timer = setTimeout(() => {

@@ -44,6 +44,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-merit-text-muted hover:text-merit-text text-sm transition">
+                  Resources
+                </Link>
+              </li>
+              <li>
                 <Link href="/signup" className="text-merit-text-muted hover:text-merit-text text-sm transition">
                   Get Started
                 </Link>

@@ -843,6 +843,39 @@ export default function PatientIntakePage() {
           </div>
         </section>
 
+        {/* ══════════════════ PREFER TO CALL ══════════════════ */}
+        <section className="py-16 md:py-20 border-t border-[#2a2440]/50">
+          <div className="max-w-3xl mx-auto px-6">
+            <AnimatedSection>
+              <div className="bg-[#15111e]/80 backdrop-blur-xl border border-[#2a2440] rounded-2xl p-8 md:p-10 text-center hover:border-[#3d3660] transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-[#d97706]/10 border border-[#d97706]/20 flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-7 h-7 text-[#d97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-[#e5e2ff] mb-3">
+                  Prefer to Call?
+                </h3>
+
+                <p className="text-[#d97706] text-2xl md:text-3xl font-bold mb-4 tracking-wide">
+                  1-800-XXX-XXXX
+                </p>
+
+                <p className="text-[#9490b0] text-sm leading-relaxed max-w-lg mx-auto mb-2">
+                  Call us 24/7. Our automated intake specialist will walk you
+                  through a few questions. It takes about 3 minutes.
+                </p>
+
+                <p className="text-[#9490b0]/60 text-xs max-w-lg mx-auto">
+                  Calls are confidential and do not create an attorney-client
+                  relationship.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* ══════════════════ CTA ══════════════════ */}
         <section className="py-24 md:py-32 border-t border-[#2a2440]/50 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#d97706]/10 via-[#4f8ff7]/5 to-[#d97706]/10" />

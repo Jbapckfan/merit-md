@@ -242,6 +242,14 @@ export default function GatewayPage() {
                   >
                     {card.buttonText}
                   </Link>
+
+                  {/* Call option for patient card */}
+                  {i === 0 && (
+                    <p className="text-center text-[#9490b0] text-xs mt-3">
+                      Or call us 24/7:{" "}
+                      <span className="text-[#d97706] font-semibold">1-800-XXX-XXXX</span>
+                    </p>
+                  )}
                 </motion.div>
               );
             })}

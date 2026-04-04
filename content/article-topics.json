@@ -1,0 +1,306 @@
+{
+  "patient": [
+    {
+      "title": "What Is a Serial Troponin and Why Your ER Doctor Should Have Ordered One",
+      "slug": "what-is-serial-troponin-er-doctor-should-have-ordered",
+      "category": "Emergency Medicine",
+      "keywords": ["serial troponin", "ER heart attack test", "missed heart attack", "troponin blood test", "emergency room malpractice"]
+    },
+    {
+      "title": "5 Signs Your Surgical Complication Was Preventable",
+      "slug": "5-signs-surgical-complication-was-preventable",
+      "category": "Surgical",
+      "keywords": ["surgical complication", "preventable surgery injury", "surgical malpractice signs", "post-surgery problems"]
+    },
+    {
+      "title": "EMTALA: Your Right to Emergency Treatment and What Happens When It's Violated",
+      "slug": "emtala-right-to-emergency-treatment",
+      "category": "Emergency Medicine",
+      "keywords": ["EMTALA", "emergency treatment rights", "ER patient rights", "refused emergency care", "patient dumping"]
+    },
+    {
+      "title": "Was My Back Pain Mishandled? Understanding Cauda Equina Syndrome",
+      "slug": "back-pain-mishandled-cauda-equina-syndrome",
+      "category": "Emergency Medicine",
+      "keywords": ["cauda equina syndrome", "back pain misdiagnosis", "ER back pain", "spinal cord emergency"]
+    },
+    {
+      "title": "Sepsis in the ER: When Delayed Treatment Becomes Malpractice",
+      "slug": "sepsis-er-delayed-treatment-malpractice",
+      "category": "Emergency Medicine",
+      "keywords": ["sepsis malpractice", "delayed sepsis treatment", "ER sepsis", "sepsis signs", "antibiotic delay"]
+    },
+    {
+      "title": "What Your Discharge Papers Should Include (And What's Missing)",
+      "slug": "discharge-papers-what-should-be-included",
+      "category": "Emergency Medicine",
+      "keywords": ["discharge papers", "ER discharge instructions", "missing discharge information", "hospital discharge"]
+    },
+    {
+      "title": "Medication Errors in the Emergency Room: When the Wrong Drug Changes Everything",
+      "slug": "medication-errors-emergency-room",
+      "category": "Emergency Medicine",
+      "keywords": ["medication error", "wrong drug ER", "pharmacy error hospital", "drug mistake emergency room"]
+    },
+    {
+      "title": "Missed Heart Attack in the ER: How It Happens and What to Do",
+      "slug": "missed-heart-attack-er-how-it-happens",
+      "category": "Emergency Medicine",
+      "keywords": ["missed heart attack", "ER heart attack misdiagnosis", "heart attack signs missed", "chest pain ER"]
+    },
+    {
+      "title": "Understanding Medical Malpractice: The 4 Things Your Attorney Must Prove",
+      "slug": "understanding-medical-malpractice-4-elements",
+      "category": "General",
+      "keywords": ["medical malpractice elements", "prove medical malpractice", "malpractice lawsuit requirements", "duty breach causation damages"]
+    },
+    {
+      "title": "Why Your ER Wait Time Matters More Than You Think",
+      "slug": "er-wait-time-matters-more-than-you-think",
+      "category": "Emergency Medicine",
+      "keywords": ["ER wait time", "emergency room waiting", "triage delay", "ER overcrowding malpractice"]
+    },
+    {
+      "title": "Stroke Misdiagnosis: When Minutes Lost Mean Brain Lost",
+      "slug": "stroke-misdiagnosis-minutes-lost-brain-lost",
+      "category": "Emergency Medicine",
+      "keywords": ["stroke misdiagnosis", "missed stroke ER", "stroke treatment delay", "tPA window missed"]
+    },
+    {
+      "title": "What Happens When Your Doctor Ignores Test Results",
+      "slug": "doctor-ignores-test-results",
+      "category": "General",
+      "keywords": ["doctor ignored test results", "abnormal lab results ignored", "missed test results", "failure to follow up"]
+    },
+    {
+      "title": "Birth Injuries: When Hospital Negligence Harms Your Baby",
+      "slug": "birth-injuries-hospital-negligence",
+      "category": "General",
+      "keywords": ["birth injury", "hospital negligence baby", "delivery malpractice", "birth injury lawsuit"]
+    },
+    {
+      "title": "How to Get Your Medical Records (And Why You Should)",
+      "slug": "how-to-get-medical-records",
+      "category": "General",
+      "keywords": ["get medical records", "request hospital records", "medical records rights", "HIPAA records request"]
+    },
+    {
+      "title": "The Difference Between a Bad Outcome and Medical Malpractice",
+      "slug": "bad-outcome-vs-medical-malpractice",
+      "category": "General",
+      "keywords": ["bad outcome vs malpractice", "is it malpractice", "medical negligence definition", "when to sue doctor"]
+    },
+    {
+      "title": "Informed Consent: What Your Surgeon Must Tell You Before Operating",
+      "slug": "informed-consent-what-surgeon-must-tell-you",
+      "category": "Surgical",
+      "keywords": ["informed consent", "surgery consent", "what surgeon must disclose", "consent form rights"]
+    },
+    {
+      "title": "Hospital Infections: When Preventable Becomes Negligent",
+      "slug": "hospital-infections-preventable-negligent",
+      "category": "General",
+      "keywords": ["hospital infection", "hospital acquired infection", "MRSA hospital", "negligent infection control"]
+    },
+    {
+      "title": "What Is a Medical Chronology and Why Your Lawyer Needs One",
+      "slug": "what-is-medical-chronology-lawyer-needs",
+      "category": "General",
+      "keywords": ["medical chronology", "medical record timeline", "malpractice case preparation", "legal medical records"]
+    },
+    {
+      "title": "Statute of Limitations: How Long You Have to File a Medical Malpractice Claim",
+      "slug": "statute-of-limitations-medical-malpractice",
+      "category": "General",
+      "keywords": ["statute of limitations malpractice", "how long to file malpractice", "malpractice deadline", "time limit medical lawsuit"]
+    },
+    {
+      "title": "What to Expect During a Medical Malpractice Case",
+      "slug": "what-to-expect-medical-malpractice-case",
+      "category": "General",
+      "keywords": ["malpractice case process", "medical malpractice lawsuit steps", "what happens in malpractice case"]
+    },
+    {
+      "title": "Wrongful Death in the ER: A Family's Guide",
+      "slug": "wrongful-death-er-family-guide",
+      "category": "Emergency Medicine",
+      "keywords": ["wrongful death ER", "ER death malpractice", "emergency room death", "family wrongful death guide"]
+    },
+    {
+      "title": "Pediatric ER Mistakes: When Children's Symptoms Are Dismissed",
+      "slug": "pediatric-er-mistakes-children-symptoms-dismissed",
+      "category": "Emergency Medicine",
+      "keywords": ["pediatric ER mistake", "child misdiagnosis", "children emergency room", "pediatric malpractice"]
+    },
+    {
+      "title": "The Role of Expert Witnesses in Medical Malpractice Cases",
+      "slug": "role-expert-witnesses-medical-malpractice",
+      "category": "General",
+      "keywords": ["expert witness malpractice", "medical expert testimony", "malpractice expert", "medical malpractice trial"]
+    },
+    {
+      "title": "Medical Malpractice Damage Caps: What They Mean for Your Case",
+      "slug": "medical-malpractice-damage-caps-what-they-mean",
+      "category": "General",
+      "keywords": ["damage caps malpractice", "malpractice compensation limits", "non-economic damages cap", "malpractice settlement"]
+    },
+    {
+      "title": "How to Choose a Medical Malpractice Attorney",
+      "slug": "how-to-choose-medical-malpractice-attorney",
+      "category": "General",
+      "keywords": ["choose malpractice attorney", "find malpractice lawyer", "best malpractice attorney", "medical malpractice lawyer tips"]
+    }
+  ],
+  "attorney": [
+    {
+      "title": "Chest Pain ACS Evaluation: Standard of Care and Common Deviations",
+      "slug": "chest-pain-acs-evaluation-standard-of-care",
+      "category": "Emergency Medicine",
+      "keywords": ["ACS evaluation standard of care", "chest pain malpractice", "acute coronary syndrome", "missed MI litigation"]
+    },
+    {
+      "title": "Sepsis Bundle Compliance: Building the SEP-1 Violation Case",
+      "slug": "sepsis-bundle-compliance-sep1-violation",
+      "category": "Emergency Medicine",
+      "keywords": ["SEP-1 violation", "sepsis bundle compliance", "sepsis malpractice attorney", "CMS sepsis measures"]
+    },
+    {
+      "title": "Cauda Equina Syndrome: Documentation Failures and Litigation Strategy",
+      "slug": "cauda-equina-syndrome-litigation-strategy",
+      "category": "Emergency Medicine",
+      "keywords": ["cauda equina litigation", "CES malpractice", "back pain missed diagnosis", "spinal emergency lawsuit"]
+    },
+    {
+      "title": "Serial Troponin Protocols: When One Negative Is Not Enough",
+      "slug": "serial-troponin-protocols-one-negative-not-enough",
+      "category": "Emergency Medicine",
+      "keywords": ["serial troponin protocol", "single troponin insufficient", "troponin standard of care", "missed MI troponin"]
+    },
+    {
+      "title": "EMTALA Enforcement Trends and Litigation Opportunities 2026",
+      "slug": "emtala-enforcement-trends-litigation-2026",
+      "category": "Emergency Medicine",
+      "keywords": ["EMTALA enforcement 2026", "EMTALA litigation", "patient dumping lawsuit", "emergency treatment law"]
+    },
+    {
+      "title": "PE/DVT Missed Diagnosis: Wells Criteria and Documentation Requirements",
+      "slug": "pe-dvt-missed-diagnosis-wells-criteria",
+      "category": "Emergency Medicine",
+      "keywords": ["PE missed diagnosis", "DVT malpractice", "Wells criteria", "pulmonary embolism lawsuit"]
+    },
+    {
+      "title": "Stroke tPA Window: Door-to-Needle Standards and Deviation Evidence",
+      "slug": "stroke-tpa-window-door-to-needle-standards",
+      "category": "Emergency Medicine",
+      "keywords": ["stroke tPA standard", "door to needle time", "stroke malpractice", "alteplase delay"]
+    },
+    {
+      "title": "Ectopic Pregnancy Missed Diagnosis: The Quantitative hCG Standard",
+      "slug": "ectopic-pregnancy-missed-diagnosis-hcg-standard",
+      "category": "Emergency Medicine",
+      "keywords": ["ectopic pregnancy missed", "hCG standard of care", "ectopic malpractice", "pregnancy emergency"]
+    },
+    {
+      "title": "Failure to Act on Critical Lab Results: Building an Irrefutable Timeline",
+      "slug": "failure-act-critical-lab-results-timeline",
+      "category": "Emergency Medicine",
+      "keywords": ["critical lab results", "failure to act lab values", "critical value notification", "lab result malpractice"]
+    },
+    {
+      "title": "Informed Consent in Emergency Surgery: What Must Be Disclosed",
+      "slug": "informed-consent-emergency-surgery-disclosure",
+      "category": "Surgical",
+      "keywords": ["informed consent emergency", "emergency surgery consent", "disclosure requirements surgery", "consent malpractice"]
+    },
+    {
+      "title": "The Defense Hindsight Bias Argument: How to Counter It",
+      "slug": "defense-hindsight-bias-argument-how-to-counter",
+      "category": "General",
+      "keywords": ["hindsight bias defense", "malpractice defense arguments", "counter defense arguments", "medical malpractice trial strategy"]
+    },
+    {
+      "title": "Medical Record Chronology Best Practices for Med-Mal Intake",
+      "slug": "medical-record-chronology-best-practices",
+      "category": "General",
+      "keywords": ["medical record chronology", "med-mal intake", "case intake records review", "medical timeline analysis"]
+    },
+    {
+      "title": "Retained Foreign Body Cases: Universal Protocol Failures",
+      "slug": "retained-foreign-body-universal-protocol-failures",
+      "category": "Surgical",
+      "keywords": ["retained foreign body", "surgical sponge left", "wrong site surgery", "universal protocol failure"]
+    },
+    {
+      "title": "ED Boarding and Crowding: System Liability Theories",
+      "slug": "ed-boarding-crowding-system-liability",
+      "category": "Emergency Medicine",
+      "keywords": ["ED boarding liability", "ER crowding malpractice", "system negligence hospital", "emergency department overcrowding"]
+    },
+    {
+      "title": "Pediatric Fever Workup Standards: Neonatal Sepsis Cases",
+      "slug": "pediatric-fever-workup-neonatal-sepsis",
+      "category": "Emergency Medicine",
+      "keywords": ["pediatric fever workup", "neonatal sepsis", "infant fever standard of care", "pediatric ER malpractice"]
+    },
+    {
+      "title": "Post-Operative Failure to Rescue: Building the Nursing Negligence Case",
+      "slug": "post-operative-failure-to-rescue-nursing",
+      "category": "Surgical",
+      "keywords": ["failure to rescue", "nursing negligence", "post-op complications", "nursing malpractice"]
+    },
+    {
+      "title": "Testicular Torsion Misdiagnosis: Time-Critical Standard of Care",
+      "slug": "testicular-torsion-misdiagnosis-standard-of-care",
+      "category": "Emergency Medicine",
+      "keywords": ["testicular torsion misdiagnosis", "torsion malpractice", "testicular torsion standard of care", "urologic emergency"]
+    },
+    {
+      "title": "Aortic Dissection: The Chest Pain Diagnosis That Kills",
+      "slug": "aortic-dissection-chest-pain-diagnosis-kills",
+      "category": "Emergency Medicine",
+      "keywords": ["aortic dissection missed", "aortic dissection malpractice", "chest pain differential", "dissection standard of care"]
+    },
+    {
+      "title": "Medication Error Litigation: High-Alert Drug Protocols",
+      "slug": "medication-error-litigation-high-alert-drugs",
+      "category": "Emergency Medicine",
+      "keywords": ["medication error litigation", "high alert drugs", "drug error malpractice", "pharmacy negligence"]
+    },
+    {
+      "title": "Compartment Syndrome: Delayed Fasciotomy Cases",
+      "slug": "compartment-syndrome-delayed-fasciotomy",
+      "category": "Emergency Medicine",
+      "keywords": ["compartment syndrome", "delayed fasciotomy", "compartment syndrome malpractice", "orthopedic emergency"]
+    },
+    {
+      "title": "Medical Malpractice Damage Caps by State: 2026 Update",
+      "slug": "medical-malpractice-damage-caps-by-state-2026",
+      "category": "General",
+      "keywords": ["damage caps by state", "malpractice caps 2026", "non-economic damage limits", "state malpractice law"]
+    },
+    {
+      "title": "Certificate of Merit Requirements: A 50-State Guide",
+      "slug": "certificate-of-merit-requirements-50-state",
+      "category": "General",
+      "keywords": ["certificate of merit", "affidavit of merit", "malpractice filing requirements", "pre-suit requirements"]
+    },
+    {
+      "title": "Deposition Preparation for Defendant Emergency Physicians",
+      "slug": "deposition-preparation-defendant-emergency-physicians",
+      "category": "General",
+      "keywords": ["deposition preparation", "defendant physician deposition", "ER doctor deposition", "malpractice deposition tips"]
+    },
+    {
+      "title": "Loss of Chance Doctrine: State-by-State Analysis",
+      "slug": "loss-of-chance-doctrine-state-analysis",
+      "category": "General",
+      "keywords": ["loss of chance", "lost chance doctrine", "loss of chance states", "reduced survival malpractice"]
+    },
+    {
+      "title": "Expert Witness Selection for Emergency Medicine Cases",
+      "slug": "expert-witness-selection-emergency-medicine",
+      "category": "Emergency Medicine",
+      "keywords": ["expert witness selection", "emergency medicine expert", "EM expert witness", "malpractice expert requirements"]
+    }
+  ]
+}

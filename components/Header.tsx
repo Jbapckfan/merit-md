@@ -10,6 +10,7 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
   const isPatientSection = pathname?.startsWith("/patient");
   const isClinicianSection = pathname?.startsWith("/clinician");
   const isChartReviewSection = pathname?.startsWith("/chartreview");
+  const isBlogSection = pathname?.startsWith("/blog");
 
   // Determine brand name based on section
   let brandName = "MedMal Review";
@@ -94,6 +95,12 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
               >
                 ChartReview Pro
               </Link>
+              <Link
+                href="/blog"
+                className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+              >
+                Resources
+              </Link>
             </>
           )}
 
@@ -130,6 +137,14 @@ export default function Header({ isLoggedIn = false }: { isLoggedIn?: boolean })
                   className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
                 >
                   ChartReview Pro
+                </Link>
+              )}
+              {!isBlogSection && (
+                <Link
+                  href="/blog"
+                  className="text-merit-text-muted hover:text-merit-text transition text-sm hidden sm:block"
+                >
+                  Resources
                 </Link>
               )}
             </>
